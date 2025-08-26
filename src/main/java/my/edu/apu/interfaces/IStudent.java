@@ -12,7 +12,7 @@ import my.edu.apu.enums.Program;
  *
  * @author pakdad
  */
-interface IStudent extends IUser {
+public interface IStudent extends IUser {
 
     // Getters
     LocalDate getDob();
