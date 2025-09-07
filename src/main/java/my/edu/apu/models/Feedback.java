@@ -27,27 +27,27 @@ public class Feedback implements IFeedback {
 
     @Override
     public String getStudentId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.studentId;
     }
 
     @Override
     public String getSupervisorId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.supervisorId;
     }
 
     @Override
     public String getFeedback() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.feedback;
     }
 
     @Override
     public LocalDate getCreatedAt() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.createdAt;
     }
 
     @Override
     public void setFeedback(String feedback) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.feedback = feedback;
     }
 
 }

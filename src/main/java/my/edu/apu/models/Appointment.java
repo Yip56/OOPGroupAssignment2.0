@@ -26,34 +26,35 @@ public class Appointment implements IAppointment {
         this.status = AppointmentStatus.PENDING; // Initially pending when appointment is created
     }
 
+
     @Override
     public String getStudentId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.studentId;
     }
 
     @Override
     public String getSupervisorId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.supervisorId;
     }
 
     @Override
     public LocalDate getTimeslot() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.timeslot;
     }
 
     @Override
     public AppointmentStatus getStatus() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.status;
     }
 
     @Override
     public void setTimeslot(LocalDate timeslot) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      this.timeslot = timeslot;
     }
 
     @Override
     public void setStatus(AppointmentStatus status) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.status = status;
     }
 
 }
