@@ -15,6 +15,8 @@ import java.time.LocalDate;
 public interface IAppointment {
 
     // Getters
+    String getId();
+    
     String getStudentId();
 
     String getSupervisorId();

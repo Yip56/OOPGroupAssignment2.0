@@ -16,4 +16,8 @@ public class User extends AbstractUser {
         super(name, password, role);
     }
 
+    public User(String name, String password, Role role, String id) {
+        super(name, password, role, id);
+    }
+
 }

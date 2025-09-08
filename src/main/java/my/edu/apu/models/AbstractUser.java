@@ -27,12 +27,19 @@ public abstract class AbstractUser implements IUser {
         this.role = role;
     }
 
+    public AbstractUser(String name, String password, Role role, String id) {
+        this.id = id; // Allow ids to be set for restoration from file
+        this.name = name;
+        this.password = password;
+        this.role = role;
+    }
+
     @Override
     public String getId() {
         return id;
-        
+
     }
-    
+
     @Override
     public String getName() {
         return name;

@@ -13,6 +13,8 @@ import java.time.LocalDate;
 public interface IFeedback {
 
     // Getters
+    String getId();
+    
     String getStudentId();
 
     String getSupervisorId();
