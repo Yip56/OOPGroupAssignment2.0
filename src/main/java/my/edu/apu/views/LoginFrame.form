@@ -90,9 +90,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnLogin" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnForgotPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnForgotPassword" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
