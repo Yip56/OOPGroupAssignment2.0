@@ -16,6 +16,8 @@ public interface IUser {
     String getId();
 
     String getName();
+    
+    String getUniEmail();
 
     String getPassword();
 

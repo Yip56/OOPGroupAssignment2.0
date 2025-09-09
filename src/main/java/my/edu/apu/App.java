@@ -5,14 +5,10 @@
 package my.edu.apu;
 
 import javax.swing.SwingUtilities;
-import java.net.URL;
 import java.nio.file.*;
-import java.io.*;
 import java.net.URISyntaxException;
 import my.edu.apu.views.LoginFrame;
 import my.edu.apu.controllers.AuthController;
-import my.edu.apu.enums.Role;
-import my.edu.apu.models.User;
 import my.edu.apu.repositories.UserRepository;
 
 /**
@@ -22,13 +18,14 @@ import my.edu.apu.repositories.UserRepository;
 public class App {
 
     public static void main(String[] args) throws URISyntaxException {
+        // Initialize user repository
         Path userFilePath = Paths.get("data", "users.txt");
-        UserRepository repo = new UserRepository(userFilePath.toString());
-        
-        SwingUtilities.invokeLater(() -> {
+        UserRepository userRepo = new UserRepository(userFilePath.toString());
 
+        SwingUtilities.invokeLater(() -> {
+            // Create login frame and assign its controller
             LoginFrame LoginFrame = new LoginFrame();
-            new AuthController(LoginFrame);
+            new AuthController(LoginFrame, userRepo);
             LoginFrame.setVisible(true);
         });
     }

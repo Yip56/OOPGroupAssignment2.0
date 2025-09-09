@@ -4,6 +4,7 @@
  */
 package my.edu.apu.controllers;
 
+import my.edu.apu.repositories.UserRepository;
 import my.edu.apu.views.LoginFrame;
 import my.edu.apu.views.MainFrame;
 
@@ -15,7 +16,7 @@ public class AuthController {
 
     private final LoginFrame loginFrame;
 
-    public AuthController(LoginFrame loginFrame) {
+    public AuthController(LoginFrame loginFrame, UserRepository userRepo) {
         this.loginFrame = loginFrame;
 
         loginFrame.getLoginButton().addActionListener(e -> authenticate());

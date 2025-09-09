@@ -22,7 +22,7 @@ public class UserRepository implements Repository<User> {
 
     private final List<User> users = new ArrayList<>();
     private final Path filePath;
-    
+
     public UserRepository(String fileName) {
         this.filePath = Paths.get(fileName); // Create a path object
         load(); // load users from file at startup
@@ -76,7 +76,7 @@ public class UserRepository implements Repository<User> {
 
     @Override
     public void save() {
-        
+
         // Create a bufferedWriter
         try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
             System.out.println("xxxx");
@@ -84,11 +84,13 @@ public class UserRepository implements Repository<User> {
             for (User user : users) {
                 System.out.println(user.getId() + "|"
                         + user.getName() + "|"
+                        + user.getUniEmail() + "|"
                         + user.getPassword() + "|"
                         + user.getRole().name());
                 // Write in "id|name|password|role" format
                 writer.write(user.getId() + "|"
                         + user.getName() + "|"
+                        + user.getUniEmail() + "|"
                         + user.getPassword() + "|"
                         + user.getRole().name());
                 writer.newLine(); // go to next line
@@ -115,21 +117,16 @@ public class UserRepository implements Repository<User> {
             while ((line = reader.readLine()) != null) {
                 // Split lines based on the separator
                 String[] parts = line.split("\\|");
-                for (String part : parts) {
-                    System.out.println("part: " + part);
-                }
-                if (parts.length != 4) {
-                    continue;
-                }
 
                 // Get properties from parts
                 String id = parts[0];
                 String name = parts[1];
-                String password = parts[2];
-                Role role = Role.valueOf(parts[3]);
+                String uniEmail = parts[2];
+                String password = parts[3];
+                Role role = Role.valueOf(parts[4]);
 
                 // restore user with given ID and update list
-                User user = new User(name, password, role, id);
+                User user = new User(name, uniEmail, password, role, id);
                 users.add(user);
             }
         } catch (IOException e) {

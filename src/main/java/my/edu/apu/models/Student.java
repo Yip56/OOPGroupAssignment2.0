@@ -21,8 +21,8 @@ public class Student extends AbstractUser implements IStudent {
     private Intake intake;
     private Program program;
 
-    public Student(String name, String password) {
-        super(name, password, Role.STUDENT);
+    public Student(String name, String uniEmail, String password) {
+        super(name, uniEmail, password, Role.STUDENT);
     }
 
     @Override

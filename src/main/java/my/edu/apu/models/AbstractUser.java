@@ -17,19 +17,22 @@ public abstract class AbstractUser implements IUser {
 
     private final String id;      // immutable, generated once
     private String name;
+    private String uniEmail;
     private String password;
     private Role role;
 
-    public AbstractUser(String name, String password, Role role) {
+    public AbstractUser(String name, String uniEmail, String password, Role role) {
         this.id = UUID.randomUUID().toString(); // auto-generate unique ID
         this.name = name;
+        this.uniEmail = uniEmail;
         this.password = password;
         this.role = role;
     }
 
-    public AbstractUser(String name, String password, Role role, String id) {
+    public AbstractUser(String name, String uniEmail, String password, Role role, String id) {
         this.id = id; // Allow ids to be set for restoration from file
         this.name = name;
+        this.uniEmail = uniEmail; // also unique, used for identification during login
         this.password = password;
         this.role = role;
     }
@@ -48,6 +51,11 @@ public abstract class AbstractUser implements IUser {
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getUniEmail() {
+        return this.uniEmail;
     }
 
     @Override

@@ -12,12 +12,12 @@ import my.edu.apu.enums.Role;
  */
 public class User extends AbstractUser {
 
-    public User(String name, String password, Role role) {
-        super(name, password, role);
+    public User(String name, String uniEmail, String password, Role role) {
+        super(name, uniEmail, password, role);
     }
 
-    public User(String name, String password, Role role, String id) {
-        super(name, password, role, id);
+    public User(String name, String uniEmail, String password, Role role, String id) {
+        super(name, uniEmail, password, role, id);
     }
 
 }

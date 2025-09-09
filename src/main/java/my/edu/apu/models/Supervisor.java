@@ -18,8 +18,8 @@ public class Supervisor extends AbstractUser implements ISupervisor {
     private List<String> studentIds;
     private List<LocalDate> timeslots;
 
-    public Supervisor(String name, String password) {
-        super(name, password, Role.SUPERVISOR);
+    public Supervisor(String name, String uniEmail, String password) {
+        super(name, uniEmail, password, Role.SUPERVISOR);
     }
 
     @Override
