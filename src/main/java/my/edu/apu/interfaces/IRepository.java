@@ -12,7 +12,7 @@ import java.util.Optional;
  * @author pakdad
  * @param <T>
  */
-public interface Repository<T> {
+public interface IRepository<T> {
 
     Optional<T> findById(String id);   // find entity by id
 

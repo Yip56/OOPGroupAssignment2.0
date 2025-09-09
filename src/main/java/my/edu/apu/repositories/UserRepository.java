@@ -6,7 +6,7 @@ package my.edu.apu.repositories;
 
 import java.util.List;
 import java.util.Optional;
-import my.edu.apu.interfaces.Repository;
+import my.edu.apu.interfaces.IRepository;
 import my.edu.apu.models.User;
 import my.edu.apu.enums.Role;
 
@@ -18,7 +18,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
-public class UserRepository implements Repository<User> {
+public class UserRepository implements IRepository<User> {
 
     private final List<User> users = new ArrayList<>();
     private final Path filePath;
