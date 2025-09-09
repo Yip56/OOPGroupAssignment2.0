@@ -13,15 +13,7 @@ import java.time.LocalDate;
  */
 public interface ISupervisor extends IUser {
 
-    // Getters
-    List<String> getStudentIds();
-
     List<LocalDate> getAvailableTimeslots();
-
-    // Other
-    void addStudentId(String studentId);
-
-    void removeStudentId(String studentId);
 
     void addTimeslot(LocalDate timeslot);
 

@@ -15,7 +15,6 @@ import my.edu.apu.interfaces.ISupervisor;
  */
 public class Supervisor extends AbstractUser implements ISupervisor {
 
-    private List<String> studentIds;
     private List<LocalDate> timeslots;
 
     public Supervisor(String name, String uniEmail, String password) {
@@ -23,22 +22,7 @@ public class Supervisor extends AbstractUser implements ISupervisor {
     }
 
     @Override
-    public List<String> getStudentIds() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public List<LocalDate> getAvailableTimeslots() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void addStudentId(String studentId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void removeStudentId(String studentId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
