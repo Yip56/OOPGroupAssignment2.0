@@ -46,10 +46,10 @@ public class UserRepository implements IRepository<User> {
         return Optional.empty();
     }
 
-    public Optional<User> findByName(String name) {
+    public Optional<User> findByUniEmail(String UniEmail) {
         // Repeat process in findById method, but using the user's name
         for (User user : users) {
-            if (user.getName().equalsIgnoreCase(name)) {
+            if (user.getUniEmail().equalsIgnoreCase(UniEmail)) {
                 return Optional.of(user);
             }
         }
@@ -82,11 +82,6 @@ public class UserRepository implements IRepository<User> {
             System.out.println("xxxx");
             // Loop through user list
             for (User user : users) {
-                System.out.println(user.getId() + "|"
-                        + user.getName() + "|"
-                        + user.getUniEmail() + "|"
-                        + user.getPassword() + "|"
-                        + user.getRole().name());
                 // Write in "id|name|password|role" format
                 writer.write(user.getId() + "|"
                         + user.getName() + "|"
