@@ -7,10 +7,12 @@ package my.edu.apu.controllers;
 import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import my.edu.apu.enums.Role;
 import my.edu.apu.models.User;
 import my.edu.apu.repositories.UserRepository;
 import my.edu.apu.views.LoginFrame;
 import my.edu.apu.views.MainFrame;
+import my.edu.apu.views.panels.StudentView;
 
 /**
  *
@@ -52,6 +54,14 @@ public class AuthController {
         SwingUtilities.invokeLater(() -> {
             loginFrame.dispose();
             MainFrame mainFrame = new MainFrame();
+            switch (user.getRole()) {
+                case Role.STUDENT -> {
+                    StudentView studentView = new StudentView();
+                    mainFrame.setContentPane(studentView);
+                }
+            }
+
+            mainFrame.setLocationRelativeTo(null); // Center on screen
             mainFrame.setVisible(true);
         });
     }
