@@ -23,17 +23,17 @@ public class Supervisor extends AbstractUser implements ISupervisor {
 
     @Override
     public List<LocalDate> getAvailableTimeslots() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.timeslots;
     }
 
     @Override
     public void addTimeslot(LocalDate timeslot) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.timeslots.add(timeslot);
     }
 
     @Override
     public void removeTimeslot(LocalDate timeslot) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.timeslots.remove(timeslot);
     }
 
 }
