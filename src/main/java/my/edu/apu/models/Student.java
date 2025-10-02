@@ -1,19 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package my.edu.apu.models;
 
 import java.time.LocalDate;
 import my.edu.apu.enums.Intake;
 import my.edu.apu.enums.Program;
+import my.edu.apu.enums.Role;
 import my.edu.apu.interfaces.IStudent;
-import my.edu.apu.enums.*;
 
-/**
- *
- * @author pakdad
- */
 public class Student extends AbstractUser implements IStudent {
 
     private LocalDate dob;
@@ -21,28 +13,24 @@ public class Student extends AbstractUser implements IStudent {
     private Intake intake;
     private Program program;
 
+    // ✅ Minimal constructor (for creating new students at runtime)
     public Student(String name, String uniEmail, String password) {
         super(name, uniEmail, password, Role.STUDENT);
     }
 
+    // ✅ Full constructor (used for restoring from file / repo)
+    public Student(String name, String uniEmail, String password, String id,
+            LocalDate dob, String supervisorId, Intake intake, Program program) {
+        super(name, uniEmail, password, Role.STUDENT, id);
+        this.dob = dob;
+        this.supervisorId = supervisorId;
+        this.intake = intake;
+        this.program = program;
+    }
+
     @Override
     public LocalDate getDob() {
-        return this.dob;
-    }
-
-    @Override
-    public String getSupervisorId() {
-        return this.supervisorId;
-    }
-
-    @Override
-    public Intake getIntake() {
-        return this.intake;
-    }
-
-    @Override
-    public Program getProgram() {
-        return this.program;
+        return dob;
     }
 
     @Override
@@ -51,8 +39,18 @@ public class Student extends AbstractUser implements IStudent {
     }
 
     @Override
+    public String getSupervisorId() {
+        return supervisorId;
+    }
+
+    @Override
     public void setSupervisorId(String supervisorId) {
         this.supervisorId = supervisorId;
+    }
+
+    @Override
+    public Intake getIntake() {
+        return intake;
     }
 
     @Override
@@ -61,8 +59,12 @@ public class Student extends AbstractUser implements IStudent {
     }
 
     @Override
+    public Program getProgram() {
+        return program;
+    }
+
+    @Override
     public void setProgram(Program program) {
         this.program = program;
     }
-
 }
