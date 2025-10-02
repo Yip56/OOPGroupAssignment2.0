@@ -9,11 +9,12 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import my.edu.apu.enums.Role;
 import my.edu.apu.models.User;
-import my.edu.apu.repositories.UserRepository;
+import my.edu.apu.repositories.*;
 import my.edu.apu.views.LoginFrame;
 import my.edu.apu.views.MainFrame;
 import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.views.panels.SupervisorView;
+import my.edu.apu.controllers.StudentViewController;
 
 /**
  *
@@ -23,10 +24,12 @@ public class AuthController {
 
     private final LoginFrame loginFrame;
     private final UserRepository userRepo;
+    private final StudentRepository studentRepo;
 
-    public AuthController(LoginFrame loginFrame, UserRepository userRepo) {
+    public AuthController(LoginFrame loginFrame, UserRepository userRepo, StudentRepository studentRepo) {
         this.loginFrame = loginFrame;
         this.userRepo = userRepo;
+        this.studentRepo = studentRepo;
 
         // Authenticate the user when the login button is pressed
         loginFrame.getLoginButton().addActionListener(e -> authenticate());
@@ -58,6 +61,7 @@ public class AuthController {
             switch (user.getRole()) {
                 case Role.STUDENT -> {
                     StudentView studentView = new StudentView();
+                    new StudentViewController(studentView, studentRepo, user.getId());
                     mainFrame.setContentPane(studentView);
                 }
                 case Role.SUPERVISOR -> {

@@ -26,7 +26,7 @@ public class StudentView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelSettings = new javax.swing.JTabbedPane();
+        tabbedPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         txtGreeting = new javax.swing.JLabel();
@@ -40,7 +40,7 @@ public class StudentView extends javax.swing.JPanel {
         txtTime = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnAppointments = new javax.swing.JButton();
-        JButton6 = new javax.swing.JButton();
+        btnAccount = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
@@ -64,7 +64,7 @@ public class StudentView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        panelSettings.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+        tabbedPane.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
         txtGreeting.setText("Welcome Back,");
 
@@ -116,14 +116,19 @@ public class StudentView extends javax.swing.JPanel {
             }
         });
 
-        JButton6.setText("Sign Out");
-        JButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAccount.setText("Sign Out");
+        btnAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButton6ActionPerformed(evt);
+                btnAccountActionPerformed(evt);
             }
         });
 
         btnFeedback.setText("View Supervisor Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -155,7 +160,7 @@ public class StudentView extends javax.swing.JPanel {
                                     .addComponent(jLabel7)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addGap(137, 137, 137)
-                                        .addComponent(JButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,7 +202,7 @@ public class StudentView extends javax.swing.JPanel {
                                     .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -216,7 +221,7 @@ public class StudentView extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelSettings.addTab("Dashboard", jPanel1);
+        tabbedPane.addTab("Dashboard", jPanel1);
 
         txtTitle.setText("Appointments:");
 
@@ -324,7 +329,7 @@ public class StudentView extends javax.swing.JPanel {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        panelSettings.addTab("Appointments", jPanel2);
+        tabbedPane.addTab("Appointments", jPanel2);
 
         jLabel3.setText("Supervisor Feedback:");
 
@@ -397,7 +402,7 @@ public class StudentView extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelSettings.addTab("Supervisor Feedback", jPanel3);
+        tabbedPane.addTab("Supervisor Feedback", jPanel3);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("Exit Your Account");
@@ -435,7 +440,7 @@ public class StudentView extends javax.swing.JPanel {
                 .addContainerGap(287, Short.MAX_VALUE))
         );
 
-        panelSettings.addTab("Account", jPanel4);
+        tabbedPane.addTab("Account", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -443,14 +448,14 @@ public class StudentView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSettings)
+                .addComponent(tabbedPane)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSettings)
+                .addComponent(tabbedPane)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -465,19 +470,27 @@ public class StudentView extends javax.swing.JPanel {
 
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         // TODO add your handling code here:
+        this.tabbedPane.setSelectedIndex(1);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
-    private void JButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JButton6ActionPerformed
+    private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
+        this.tabbedPane.setSelectedIndex(3);
+    }//GEN-LAST:event_btnAccountActionPerformed
 
     private void fieldSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSupervisorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldSupervisorActionPerformed
 
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        this.tabbedPane.setSelectedIndex(2);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
 
+    public javax.swing.JLabel getTxtUsername() {
+        return this.txtUsername;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JButton6;
+    private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAppointments;
     private javax.swing.JButton btnCancelAppointment;
     private javax.swing.JButton btnEditAppointment;
@@ -504,7 +517,7 @@ public class StudentView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JList<String> listTimeslots;
-    private javax.swing.JTabbedPane panelSettings;
+    private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JTable tblAppointments;
     private javax.swing.JTable tblAppointmentsWidget;
     private javax.swing.JTable tblFeedbacks;
