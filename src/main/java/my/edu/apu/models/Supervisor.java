@@ -4,7 +4,7 @@
  */
 package my.edu.apu.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import my.edu.apu.enums.Role;
 import my.edu.apu.interfaces.ISupervisor;
@@ -15,24 +15,24 @@ import my.edu.apu.interfaces.ISupervisor;
  */
 public class Supervisor extends AbstractUser implements ISupervisor {
 
-    private List<LocalDate> timeslots;
+    private List<LocalDateTime> timeslots;
 
     public Supervisor(String name, String uniEmail, String password) {
         super(name, uniEmail, password, Role.SUPERVISOR);
     }
 
     @Override
-    public List<LocalDate> getAvailableTimeslots() {
+    public List<LocalDateTime> getAvailableTimeslots() {
         return this.timeslots;
     }
 
     @Override
-    public void addTimeslot(LocalDate timeslot) {
+    public void addTimeslot(LocalDateTime timeslot) {
         this.timeslots.add(timeslot);
     }
 
     @Override
-    public void removeTimeslot(LocalDate timeslot) {
+    public void removeTimeslot(LocalDateTime timeslot) {
         this.timeslots.remove(timeslot);
     }
 

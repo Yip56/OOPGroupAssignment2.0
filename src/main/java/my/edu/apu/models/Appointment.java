@@ -4,7 +4,7 @@
  */
 package my.edu.apu.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 import my.edu.apu.enums.AppointmentStatus;
 import my.edu.apu.interfaces.IAppointment;
@@ -18,10 +18,10 @@ public class Appointment implements IAppointment {
     private final String appointmentId;
     private final String studentId;
     private final String supervisorId;
-    private LocalDate timeslot;
+    private LocalDateTime timeslot;
     private AppointmentStatus status;
 
-    public Appointment(String studentId, String supervisorId, LocalDate timeslot) {
+    public Appointment(String studentId, String supervisorId, LocalDateTime timeslot) {
         this.appointmentId = UUID.randomUUID().toString(); // auto-generate unique ID
         this.studentId = studentId;
         this.supervisorId = supervisorId;
@@ -29,7 +29,7 @@ public class Appointment implements IAppointment {
         this.status = AppointmentStatus.PENDING; // Initially pending when appointment is created
     }
 
-    public Appointment(String appointmentId, String studentId, String supervisorId, LocalDate timeslot) {
+    public Appointment(String appointmentId, String studentId, String supervisorId, LocalDateTime timeslot) {
         this.appointmentId = appointmentId; // Allow custom restoration of id from file
         this.studentId = studentId;
         this.supervisorId = supervisorId;
@@ -53,7 +53,7 @@ public class Appointment implements IAppointment {
     }
 
     @Override
-    public LocalDate getTimeslot() {
+    public LocalDateTime getTimeslot() {
         return this.timeslot;
     }
 
@@ -63,7 +63,7 @@ public class Appointment implements IAppointment {
     }
 
     @Override
-    public void setTimeslot(LocalDate timeslot) {
+    public void setTimeslot(LocalDateTime timeslot) {
         this.timeslot = timeslot;
     }
 

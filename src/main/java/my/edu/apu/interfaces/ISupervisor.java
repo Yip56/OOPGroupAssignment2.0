@@ -5,7 +5,7 @@
 package my.edu.apu.interfaces;
 
 import java.util.List;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -13,9 +13,9 @@ import java.time.LocalDate;
  */
 public interface ISupervisor extends IUser {
 
-    List<LocalDate> getAvailableTimeslots();
+    List<LocalDateTime> getAvailableTimeslots();
 
-    void addTimeslot(LocalDate timeslot);
+    void addTimeslot(LocalDateTime timeslot);
 
-    void removeTimeslot(LocalDate timeslot);
+    void removeTimeslot(LocalDateTime timeslot);
 }

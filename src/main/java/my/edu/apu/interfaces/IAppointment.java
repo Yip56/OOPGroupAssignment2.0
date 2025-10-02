@@ -6,7 +6,7 @@ package my.edu.apu.interfaces;
 
 
 import my.edu.apu.enums.AppointmentStatus;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -21,12 +21,12 @@ public interface IAppointment {
 
     String getSupervisorId();
 
-    LocalDate getTimeslot();
+    LocalDateTime getTimeslot();
 
     AppointmentStatus getStatus();
 
     // Setters
-    void setTimeslot(LocalDate timeslot);
+    void setTimeslot(LocalDateTime timeslot);
 
     void setStatus(AppointmentStatus status);
 }
