@@ -13,6 +13,7 @@ import my.edu.apu.repositories.UserRepository;
 import my.edu.apu.views.LoginFrame;
 import my.edu.apu.views.MainFrame;
 import my.edu.apu.views.panels.StudentView;
+import my.edu.apu.views.panels.SupervisorView;
 
 /**
  *
@@ -59,6 +60,11 @@ public class AuthController {
                     StudentView studentView = new StudentView();
                     mainFrame.setContentPane(studentView);
                 }
+                case Role.SUPERVISOR -> {
+                    SupervisorView supervisorView = new SupervisorView();
+                    mainFrame.setContentPane(supervisorView);
+                }
+                                
             }
 
             mainFrame.setLocationRelativeTo(null); // Center on screen
