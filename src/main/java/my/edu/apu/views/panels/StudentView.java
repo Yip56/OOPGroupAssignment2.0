@@ -496,6 +496,14 @@ public class StudentView extends javax.swing.JPanel {
         return this.fieldSupervisor;
     }
     
+    public javax.swing.JLabel getTxtDate() {
+        return this.txtDate;
+    }
+    
+    public javax.swing.JLabel getTxtTime() {
+        return this.txtTime;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAppointments;
