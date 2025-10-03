@@ -31,5 +31,6 @@ public class StudentViewController {
         
         // Set the student's username in the studentView
         studentView.getTxtUsername().setText(name);
+        studentView.getFieldSupervisor().setText("Supervisor Name");
     }
 }
