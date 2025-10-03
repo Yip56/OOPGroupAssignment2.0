@@ -11,6 +11,7 @@ import my.edu.apu.views.LoginFrame;
 import my.edu.apu.controllers.AuthController;
 import my.edu.apu.repositories.StudentRepository;
 import my.edu.apu.repositories.UserRepository;
+import com.formdev.flatlaf.FlatLightLaf;
 
 /**
  *
@@ -24,6 +25,8 @@ public class App {
         Path studentFilePath = Paths.get("data", "students.txt");
         UserRepository userRepo = new UserRepository(userFilePath.toString());
         StudentRepository studentRepo = new StudentRepository(studentFilePath.toString(), userRepo);
+        
+        FlatLightLaf.setup();
 
         SwingUtilities.invokeLater(() -> {
             // Create login frame and assign its controller
