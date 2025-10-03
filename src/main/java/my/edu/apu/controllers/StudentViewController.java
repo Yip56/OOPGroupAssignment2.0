@@ -5,7 +5,9 @@
 package my.edu.apu.controllers;
 import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.repositories.StudentRepository;
+import my.edu.apu.repositories.SupervisorRepository;
 import my.edu.apu.models.Student;
+import my.edu.apu.models.Supervisor;
 
 /**
  *
@@ -15,11 +17,13 @@ public class StudentViewController {
     private final String studentId;
     private final StudentView studentView;
     private final StudentRepository studentRepo;
+    private final SupervisorRepository supervisorRepo;
     
-    public StudentViewController(StudentView studentView, StudentRepository studentRepo, String studentId) {
+    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, String studentId) {
         this.studentId = studentId;
         this.studentView = studentView;
         this.studentRepo = studentRepo;
+        this.supervisorRepo = supervisorRepo;
         
         intializeStudentView();
     }
@@ -31,6 +35,9 @@ public class StudentViewController {
         
         // Set the student's username in the studentView
         studentView.getTxtUsername().setText(name);
-        studentView.getFieldSupervisor().setText("Supervisor Name");
+        
+        // Find the student's supervisor
+        Supervisor supervisor = supervisorRepo.findById(student.getSupervisorId()).get();
+        studentView.getFieldSupervisor().setText(supervisor.getName());
     }
 }
