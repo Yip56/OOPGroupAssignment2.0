@@ -5,8 +5,7 @@
 package my.edu.apu.controllers;
 
 import my.edu.apu.views.panels.StudentView;
-import my.edu.apu.repositories.StudentRepository;
-import my.edu.apu.repositories.SupervisorRepository;
+import my.edu.apu.repositories.*;
 import my.edu.apu.models.Student;
 import my.edu.apu.models.Supervisor;
 import java.time.LocalDate;
@@ -26,12 +25,14 @@ public class StudentViewController {
     private final StudentView studentView;
     private final StudentRepository studentRepo;
     private final SupervisorRepository supervisorRepo;
+    private final AppointmentRepository appointmentRepo;
 
-    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, String studentId) {
+    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, String studentId) {
         this.studentId = studentId;
         this.studentView = studentView;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
+        this.appointmentRepo = appointmentRepo;
 
         intializeStudentView();
         initializeTimers();
