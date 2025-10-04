@@ -31,6 +31,16 @@ public class AppointmentRepository implements IRepository<Appointment> {
                 .findFirst();
     }
 
+    public List<Appointment> findByStudentId(String studentId) {
+        List<Appointment> result = new ArrayList<>();
+        for (Appointment a : appointments) {
+            if (a.getStudentId().equals(studentId)) {
+                result.add(a);
+            }
+        }
+        return result;
+    }
+
     @Override
     public void add(Appointment appointment) {
         appointments.add(appointment);

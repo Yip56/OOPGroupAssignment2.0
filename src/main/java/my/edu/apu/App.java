@@ -32,10 +32,10 @@ public class App {
         SupervisorRepository supervisorRepo = new SupervisorRepository(supervisorFilePath.toString(), userRepo);
         AppointmentRepository appointmentRepo = new AppointmentRepository(appointmentFilePath.toString());
         FeedbackRepository feedbackRepo = new FeedbackRepository(feedbackFilePath.toString());
-        
+
         // Set up LAF
         FlatLightLaf.setup();
-        
+
         // Create login frame and auth controller
         SwingUtilities.invokeLater(() -> {
             // Create login frame and assign its controller
