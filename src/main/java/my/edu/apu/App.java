@@ -24,12 +24,14 @@ public class App {
         Path studentFilePath = Paths.get("data", "students.txt");
         Path supervisorFilePath = Paths.get("data", "supervisors.txt");
         Path appointmentFilePath = Paths.get("data", "appointments.txt");
+        Path feedbackFilePath = Paths.get("data", "feedbacks.txt");
 
         // Initialize repositories
         UserRepository userRepo = new UserRepository(userFilePath.toString());
         StudentRepository studentRepo = new StudentRepository(studentFilePath.toString(), userRepo);
         SupervisorRepository supervisorRepo = new SupervisorRepository(supervisorFilePath.toString(), userRepo);
         AppointmentRepository appointmentRepo = new AppointmentRepository(appointmentFilePath.toString());
+        FeedbackRepository feedbackRepo = new FeedbackRepository(feedbackFilePath.toString());
         
         // Set up LAF
         FlatLightLaf.setup();
@@ -38,7 +40,7 @@ public class App {
         SwingUtilities.invokeLater(() -> {
             // Create login frame and assign its controller
             LoginFrame LoginFrame = new LoginFrame();
-            new AuthController(LoginFrame, userRepo, studentRepo, supervisorRepo, appointmentRepo);
+            new AuthController(LoginFrame, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
             LoginFrame.setVisible(true);
         });
     }

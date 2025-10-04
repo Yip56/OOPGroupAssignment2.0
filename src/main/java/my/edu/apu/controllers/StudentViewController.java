@@ -26,13 +26,15 @@ public class StudentViewController {
     private final StudentRepository studentRepo;
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
+    private final FeedbackRepository feedbackRepo;
 
-    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, String studentId) {
+    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, String studentId) {
         this.studentId = studentId;
         this.studentView = studentView;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
+        this.feedbackRepo = feedbackRepo;
 
         intializeStudentView();
         initializeTimers();

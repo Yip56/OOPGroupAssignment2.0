@@ -27,13 +27,16 @@ public class AuthController {
     private final StudentRepository studentRepo;
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
+    private final FeedbackRepository feedbackRepo;
 
-    public AuthController(LoginFrame loginFrame, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo) {
+    public AuthController(LoginFrame loginFrame, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo) {
         this.loginFrame = loginFrame;
         this.userRepo = userRepo;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
+        this.feedbackRepo = feedbackRepo;
+        
 
         // Authenticate the user when the login button is pressed
         loginFrame.getLoginButton().addActionListener(e -> authenticate());
@@ -65,7 +68,7 @@ public class AuthController {
             switch (user.getRole()) {
                 case Role.STUDENT -> {
                     StudentView studentView = new StudentView();
-                    new StudentViewController(studentView, studentRepo, supervisorRepo, appointmentRepo, user.getId());
+                    new StudentViewController(studentView, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
                     mainFrame.setContentPane(studentView);
                 }
                 case Role.SUPERVISOR -> {
