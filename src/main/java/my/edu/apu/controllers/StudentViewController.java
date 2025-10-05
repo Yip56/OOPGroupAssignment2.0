@@ -146,7 +146,7 @@ public class StudentViewController {
 
         // Ensure a row is properly selected
         if (selectedTimeslotRow == -1) {
-            displayMessage("Please select a valid timeslot to book an appointment.");
+            displayMessage("Please select a valid timeslot to book an appointment.", "Invalid Action");
             return;
         }
 
@@ -179,7 +179,7 @@ public class StudentViewController {
 
         // Ensure a row is properly selected
         if (selectedAppointmentRow == -1) {
-            displayMessage("Please select a valid appointment to cancel.");
+            displayMessage("Please select a valid appointment to cancel.", "Invalid Action");
             return;
         }
 
@@ -198,8 +198,8 @@ public class StudentViewController {
         studentView.getBtnCancelAppointment().setEnabled(false);
     }
 
-    private void displayMessage(String m) {
-        JOptionPane.showMessageDialog(studentView, m);
+    private void displayMessage(String message, String title) {
+        JOptionPane.showMessageDialog(studentView, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void initializeTimeslots() {
