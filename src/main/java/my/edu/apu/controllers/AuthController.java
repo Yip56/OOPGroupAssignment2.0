@@ -15,6 +15,7 @@ import my.edu.apu.views.MainFrame;
 import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.views.panels.SupervisorView;
 import my.edu.apu.controllers.StudentViewController;
+import my.edu.apu.utils.AppNavigator;
 
 /**
  *
@@ -23,23 +24,29 @@ import my.edu.apu.controllers.StudentViewController;
 public class AuthController {
 
     private final LoginFrame loginFrame;
+    private final AppNavigator navigator;
     private final UserRepository userRepo;
     private final StudentRepository studentRepo;
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
     private final FeedbackRepository feedbackRepo;
 
-    public AuthController(LoginFrame loginFrame, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo) {
+    public AuthController(LoginFrame loginFrame, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo) {
         this.loginFrame = loginFrame;
+        this.navigator = navigator;
         this.userRepo = userRepo;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
         this.feedbackRepo = feedbackRepo;
-        
 
         // Authenticate the user when the login button is pressed
         loginFrame.getLoginButton().addActionListener(e -> authenticate());
+    }
+
+    public void displayLoginFrame() {
+        // Display login frame
+        loginFrame.setVisible(true);
     }
 
     private void authenticate() {
@@ -68,14 +75,14 @@ public class AuthController {
             switch (user.getRole()) {
                 case Role.STUDENT -> {
                     StudentView studentView = new StudentView();
-                    new StudentViewController(studentView, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
+                    new StudentViewController(studentView, navigator, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
                     mainFrame.setContentPane(studentView);
                 }
                 case Role.SUPERVISOR -> {
                     SupervisorView supervisorView = new SupervisorView();
                     mainFrame.setContentPane(supervisorView);
                 }
-                                
+
             }
 
             mainFrame.setLocationRelativeTo(null); // Center on screen

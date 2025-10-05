@@ -11,6 +11,7 @@ import my.edu.apu.views.LoginFrame;
 import my.edu.apu.controllers.AuthController;
 import my.edu.apu.repositories.*;
 import com.formdev.flatlaf.FlatLightLaf;
+import my.edu.apu.utils.AppNavigator;
 
 /**
  *
@@ -36,12 +37,8 @@ public class App {
         // Set up LAF
         FlatLightLaf.setup();
 
-        // Create login frame and auth controller
-        SwingUtilities.invokeLater(() -> {
-            // Create login frame and assign its controller
-            LoginFrame LoginFrame = new LoginFrame();
-            new AuthController(LoginFrame, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
-            LoginFrame.setVisible(true);
-        });
+        // Display login frame
+        AppNavigator navigator = new AppNavigator(userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
+        navigator.displayLogin();
     }
 }

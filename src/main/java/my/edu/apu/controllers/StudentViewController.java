@@ -17,12 +17,14 @@ import java.util.List;
 import javax.swing.SwingUtilities;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import my.edu.apu.models.Appointment;
 import my.edu.apu.models.Feedback;
+import my.edu.apu.utils.AppNavigator;
 
 /**
  *
@@ -33,6 +35,7 @@ public class StudentViewController {
     private final String studentId;
     private final String supervisorId;
     private final StudentView studentView;
+    private final AppNavigator navigator;
     private final StudentRepository studentRepo;
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
@@ -49,9 +52,10 @@ public class StudentViewController {
     private int selectedAppointmentRow = -1;
     private int selectedTimeslotRow = -1;
 
-    public StudentViewController(StudentView studentView, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, String studentId) {
+    public StudentViewController(StudentView studentView, AppNavigator navigator, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, String studentId) {
         this.studentId = studentId;
         this.studentView = studentView;
+        this.navigator = navigator;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
@@ -68,6 +72,7 @@ public class StudentViewController {
         initializeTimeslots();
         manageAppointments();
         manageFeedbackDisplay();
+        manageSignOut();
     }
 
     private void loadAppointments() {
@@ -325,5 +330,13 @@ public class StudentViewController {
                 });
             }
         }, 0, 1000);
+    }
+
+    private void manageSignOut() {
+        studentView.getBtnSignOut().addActionListener(e -> {
+            // Switch to login frame
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(studentView);
+            navigator.switchToLogin(mainFrame);
+        });
     }
 }

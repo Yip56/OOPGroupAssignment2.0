@@ -64,7 +64,7 @@ public class StudentView extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
 
         tabbedPane.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
@@ -455,10 +455,10 @@ public class StudentView extends javax.swing.JPanel {
 
         jLabel2.setText("Leave your account and sign back in later to continue.");
 
-        jButton1.setText("Sign out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSignOut.setText("Sign out");
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSignOutActionPerformed(evt);
             }
         });
 
@@ -471,7 +471,7 @@ public class StudentView extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(319, 319, 319))
         );
         jPanel4Layout.setVerticalGroup(
@@ -482,7 +482,7 @@ public class StudentView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(266, Short.MAX_VALUE))
         );
 
@@ -506,9 +506,9 @@ public class StudentView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
     private void btnMakeAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeAppointmentActionPerformed
         // TODO add your handling code here:
@@ -575,14 +575,18 @@ public class StudentView extends javax.swing.JPanel {
         return this.txtAreaFeedbackDisplay;
     }
 
+    public javax.swing.JButton getBtnSignOut() {
+        return this.btnSignOut;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAppointments;
     private javax.swing.JButton btnCancelAppointment;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMakeAppointment;
+    private javax.swing.JButton btnSignOut;
     private javax.swing.JTextField fieldSupervisor;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

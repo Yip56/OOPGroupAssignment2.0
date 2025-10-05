@@ -780,7 +780,7 @@
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="2" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="btnSignOut" alignment="2" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
                   </Group>
@@ -794,7 +794,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnSignOut" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace pref="266" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -814,12 +814,12 @@
                 <Property name="text" type="java.lang.String" value="Leave your account and sign back in later to continue."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnSignOut">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sign out"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignOutActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
