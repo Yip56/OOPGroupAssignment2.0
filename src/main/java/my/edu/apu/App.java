@@ -4,11 +4,8 @@
  */
 package my.edu.apu;
 
-import javax.swing.SwingUtilities;
 import java.nio.file.*;
 import java.net.URISyntaxException;
-import my.edu.apu.views.LoginFrame;
-import my.edu.apu.controllers.AuthController;
 import my.edu.apu.repositories.*;
 import com.formdev.flatlaf.FlatLightLaf;
 import my.edu.apu.utils.AppNavigator;
