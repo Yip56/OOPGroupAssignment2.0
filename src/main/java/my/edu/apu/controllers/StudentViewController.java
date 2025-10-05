@@ -22,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import my.edu.apu.models.Appointment;
+import my.edu.apu.models.Feedback;
 
 /**
  *
@@ -37,7 +38,8 @@ public class StudentViewController {
     private final AppointmentRepository appointmentRepo;
     private final FeedbackRepository feedbackRepo;
     private DefaultTableModel appointmentModel;
-    private DefaultTableModel timeslotModel = null;
+    private DefaultTableModel timeslotModel;
+    private DefaultTableModel feedbackModel;
 
     // Set up date formatters
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy"); // e.g. 05/10/25
@@ -62,8 +64,10 @@ public class StudentViewController {
     private void intializeStudentView() {
         initializeDashboard();
         loadAppointments();
+        loadFeedbacks();
         initializeTimeslots();
         manageAppointments();
+        manageFeedbackDisplay();
     }
 
     private void loadAppointments() {
@@ -246,6 +250,53 @@ public class StudentViewController {
         }
     }
 
+    private void loadFeedbacks() {
+        // Create table model
+        String[] columnNames = {"Feedback ID", "Supervisor Name", "Feedback", "Created At"};
+        this.feedbackModel = new DefaultTableModel(columnNames, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // makes ALL cells uneditable
+            }
+        };
+
+        // Populate feedback table
+        List<Feedback> feedbacks = feedbackRepo.findByStudentId(studentId);
+        for (Feedback fb : feedbacks) {
+            String id = fb.getId();
+            String supervisorName = supervisorRepo.findById(fb.getSupervisorId()).get().getName();
+            String feedbackText = fb.getFeedback();
+            String createdAt = fb.getCreatedAt().format(dateFormatter);
+
+            feedbackModel.addRow(new Object[]{id, supervisorName, feedbackText, createdAt});
+        }
+
+        // Attach model to timeslot
+        studentView.getTblFeedbacks().setModel(feedbackModel);
+
+        // only hide the first column (Feedback ID)
+        TableColumn idColumn = studentView.getTblFeedbacks().getColumnModel().getColumn(0);
+        studentView.getTblFeedbacks().removeColumn(idColumn);
+    }
+
+    public void manageFeedbackDisplay() {
+        // When a feedback is selected, display it
+        studentView.getTblFeedbacks().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                displayFeedback();
+            }
+        });
+    }
+
+    private void displayFeedback() {
+        // Get selected feedback
+        int row = studentView.getTblFeedbacks().getSelectedRow();
+        String id = String.valueOf(feedbackModel.getValueAt(row, 0));
+        Feedback feedback = feedbackRepo.findById(id).get();
+
+        studentView.getTxtAreaFeedbackDisplay().setText(feedback.getFeedback());
+    }
+
     private void initializeDashboard() {
         // Find the student from the student repository
         Student student = studentRepo.findById(studentId).get();
@@ -274,6 +325,5 @@ public class StudentViewController {
                 });
             }
         }, 0, 1000);
-
     }
 }
