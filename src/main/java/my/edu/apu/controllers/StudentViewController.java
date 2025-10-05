@@ -62,7 +62,7 @@ public class StudentViewController {
     private void intializeStudentView() {
         initializeDashboard();
         loadAppointments();
-        loadTimeslots();
+        initializeTimeslots();
         manageAppointments();
     }
 
@@ -163,7 +163,7 @@ public class StudentViewController {
         appointmentModel.addRow(new Object[]{appt.getId(), supervisorName, date, time, status});
 
         // Reload timeslots
-        loadTimeslots();
+        reloadTimeslots();
 
         // Reset selected row
         selectedTimeslotRow = -1;
@@ -187,7 +187,7 @@ public class StudentViewController {
         appointmentModel.removeRow(selectedAppointmentRow);
 
         // Reload timeslots
-        loadTimeslots();
+        reloadTimeslots();
 
         // Reset selected row
         selectedAppointmentRow = -1;
@@ -198,25 +198,28 @@ public class StudentViewController {
         JOptionPane.showMessageDialog(studentView, m);
     }
 
-    private void updateButtonEnabled() {
+    private void initializeTimeslots() {
+        // Initialize the timeslot model
+        String[] timeslotColumns = {"Full Date", "Date", "Time"};
+        this.timeslotModel = new DefaultTableModel(timeslotColumns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // makes ALL cells uneditable
+            }
+        };
 
+        // Load in the data
+        reloadTimeslots();
+
+        // Attach model to timeslot
+        studentView.getTblTimeslots().setModel(timeslotModel);
+
+        // only hide the first column (Full Date)
+        TableColumn idColumn = studentView.getTblTimeslots().getColumnModel().getColumn(0);
+        studentView.getTblTimeslots().removeColumn(idColumn);
     }
 
-    private void loadTimeslots() {
-        boolean hideColumnFlag = false;
-
-        // Create timeslot model if not created already
-        if (timeslotModel == null) {
-            hideColumnFlag = true;
-            String[] timeslotColumns = {"Full Date", "Date", "Time"};
-            this.timeslotModel = new DefaultTableModel(timeslotColumns, 0) {
-                @Override
-                public boolean isCellEditable(int row, int column) {
-                    return false; // makes ALL cells uneditable
-                }
-            };
-        }
-
+    private void reloadTimeslots() {
         // Empty the model before adding rows
         timeslotModel.setRowCount(0);
 
@@ -241,16 +244,6 @@ public class StudentViewController {
 
             timeslotModel.addRow(new Object[]{timeslot.toString(), date, time});
         }
-
-        // Attach model to timeslot
-        studentView.getTblTimeslots().setModel(timeslotModel);
-
-        // only hide the first column (Full Date) on creation
-        if (hideColumnFlag) {
-            TableColumn idColumn = studentView.getTblTimeslots().getColumnModel().getColumn(0);
-            studentView.getTblTimeslots().removeColumn(idColumn);
-        }
-
     }
 
     private void initializeDashboard() {
