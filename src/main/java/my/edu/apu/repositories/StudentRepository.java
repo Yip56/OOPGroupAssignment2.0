@@ -52,6 +52,7 @@ public class StudentRepository implements IRepository<Student> {
                 break;
             }
         }
+        userRepo.remove(id);
         save();
     }
 

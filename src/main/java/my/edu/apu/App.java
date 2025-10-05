@@ -4,13 +4,11 @@
  */
 package my.edu.apu;
 
-import javax.swing.SwingUtilities;
 import java.nio.file.*;
 import java.net.URISyntaxException;
-import my.edu.apu.views.LoginFrame;
-import my.edu.apu.controllers.AuthController;
-import my.edu.apu.repositories.StudentRepository;
-import my.edu.apu.repositories.UserRepository;
+import my.edu.apu.repositories.*;
+import com.formdev.flatlaf.FlatLightLaf;
+import my.edu.apu.utils.AppNavigator;
 
 /**
  *
@@ -19,17 +17,25 @@ import my.edu.apu.repositories.UserRepository;
 public class App {
 
     public static void main(String[] args) throws URISyntaxException {
-        // Initialize user repository
+        // Initialize repository filepaths
         Path userFilePath = Paths.get("data", "users.txt");
         Path studentFilePath = Paths.get("data", "students.txt");
+        Path supervisorFilePath = Paths.get("data", "supervisors.txt");
+        Path appointmentFilePath = Paths.get("data", "appointments.txt");
+        Path feedbackFilePath = Paths.get("data", "feedbacks.txt");
+
+        // Initialize repositories
         UserRepository userRepo = new UserRepository(userFilePath.toString());
         StudentRepository studentRepo = new StudentRepository(studentFilePath.toString(), userRepo);
+        SupervisorRepository supervisorRepo = new SupervisorRepository(supervisorFilePath.toString(), userRepo);
+        AppointmentRepository appointmentRepo = new AppointmentRepository(appointmentFilePath.toString());
+        FeedbackRepository feedbackRepo = new FeedbackRepository(feedbackFilePath.toString());
 
-        SwingUtilities.invokeLater(() -> {
-            // Create login frame and assign its controller
-            LoginFrame LoginFrame = new LoginFrame();
-            new AuthController(LoginFrame, userRepo, studentRepo);
-            LoginFrame.setVisible(true);
-        });
+        // Set up LAF
+        FlatLightLaf.setup();
+
+        // Display login frame
+        AppNavigator navigator = new AppNavigator(userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
+        navigator.displayLogin();
     }
 }
