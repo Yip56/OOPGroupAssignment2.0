@@ -33,6 +33,28 @@ public class FeedbackRepository implements IRepository<Feedback> {
         return Optional.empty();
     }
 
+    public List<Feedback> findByStudentId(String studentId) {
+        List<Feedback> filteredFeedbacks = new ArrayList<>();
+        for (Feedback fb : feedbackList) {
+            if (fb.getStudentId().equals(studentId)) {
+                filteredFeedbacks.add(fb);
+            }
+        }
+
+        return filteredFeedbacks;
+    }
+
+    public List<Feedback> findBySupervisorId(String SupervisorId) {
+        List<Feedback> filteredFeedbacks = new ArrayList<>();
+        for (Feedback fb : feedbackList) {
+            if (fb.getSupervisorId().equals(SupervisorId)) {
+                filteredFeedbacks.add(fb);
+            }
+        }
+
+        return filteredFeedbacks;
+    }
+
     @Override
     public void add(Feedback feedback) {
         feedbackList.add(feedback);
