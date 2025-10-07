@@ -50,6 +50,19 @@ public class FacultyAdminView extends javax.swing.JPanel {
         btnQuickSupervisors = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
+        txtTitle = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        comboIntakeFilter = new javax.swing.JComboBox<>();
+        comboProgramFilter = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        txtStudentName = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtStudentName1 = new javax.swing.JTextField();
+        btnSupervisorNameSearch = new javax.swing.JButton();
+        btnStudentNameSearch = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -76,8 +89,10 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
         txtGreeting.setText("Welcome Back,");
 
+        txtUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         txtUsername.setText("Rodrigo Mendez.");
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Total Students:");
 
         txtTotalStudents.setText("1153");
@@ -87,6 +102,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Total Supervisors:");
 
         txtUnassignedStudents.setText("239");
@@ -96,6 +112,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Total Unassigned Students:");
 
         txtTotalSupervisors1.setText("235");
@@ -105,38 +122,36 @@ public class FacultyAdminView extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("# of Students by intake:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(428),  new Integer(230),  new Integer(495)}
+                {"428", "230", "495"}
             },
             new String [] {
                 "January", "May", "September"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         txtDate.setText("6th September, 2025");
 
         txtTime.setText("4:01 PM");
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel6.setText("Quick Actions:");
 
+        btnQuickReports.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnQuickReports.setText("Generate Reports");
 
+        btnQuickStudents.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnQuickStudents.setText("See All Students");
 
+        btnQuickAssignments.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnQuickAssignments.setText("Assign Supervisors to Students");
 
+        btnQuickSupervisors.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnQuickSupervisors.setText("See All Supervisors");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -225,15 +240,118 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Dashboard", jPanel1);
 
+        txtTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        txtTitle.setText("Students:");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Jack", "Bob", "January", "Computer Science", "05/10/25"},
+                {"Bob", "Bob", "May", "Data Science", "11/10/25"},
+                {"Chris", "Bob", "May", "Software Engineering", "13/10/25"},
+                {"Mendez", "Bob", "January", "Data Science", "17/10/25"},
+                {"Rodrigo", "Bob", "January", "Information Technology", "20/10/25"},
+                {"Candice", "Bob", "September", "Computer Science", "21/10/25"},
+                {"Phil", "Bob", "January", "Information Technology", "24/10/25"},
+                {"John", "Bob", "Semptember", "Computer Science", "25/10/25"},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Student Name", "Sup.Name", "Intake", "Program", "DOB"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel7.setText("Intake Filter");
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel8.setText("Program Filter");
+
+        comboIntakeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboProgramFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel9.setText("Search by Student Name:");
+
+        txtStudentName.setText("Bob");
+
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel10.setText("Seacrh by Supervisor Name:");
+
+        txtStudentName1.setText("Jack");
+
+        btnSupervisorNameSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnSupervisorNameSearch.setText("Search By Supervisor Name");
+
+        btnStudentNameSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnStudentNameSearch.setText("Search By Student Name");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboIntakeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addContainerGap())
+                            .addComponent(comboProgramFilter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addContainerGap(88, Short.MAX_VALUE))
+                    .addComponent(txtStudentName1)
+                    .addComponent(txtStudentName)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnSupervisorNameSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStudentNameSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 566, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTitle)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(comboProgramFilter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addComponent(comboIntakeFilter, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStudentNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSupervisorNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Student List", jPanel2);
@@ -371,12 +489,20 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnQuickReports;
     private javax.swing.JButton btnQuickStudents;
     private javax.swing.JButton btnQuickSupervisors;
+    private javax.swing.JButton btnStudentNameSearch;
+    private javax.swing.JButton btnSupervisorNameSearch;
+    private javax.swing.JComboBox<String> comboIntakeFilter;
+    private javax.swing.JComboBox<String> comboProgramFilter;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -388,13 +514,18 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel txtDate;
     private javax.swing.JLabel txtGreeting;
+    private javax.swing.JTextField txtStudentName;
+    private javax.swing.JTextField txtStudentName1;
     private javax.swing.JLabel txtTime;
+    private javax.swing.JLabel txtTitle;
     private javax.swing.JTextField txtTotalStudents;
     private javax.swing.JTextField txtTotalSupervisors1;
     private javax.swing.JTextField txtUnassignedStudents;
