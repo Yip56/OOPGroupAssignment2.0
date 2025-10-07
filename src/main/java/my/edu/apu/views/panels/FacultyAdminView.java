@@ -74,6 +74,16 @@ public class FacultyAdminView extends javax.swing.JPanel {
         tblSupervisorTimeslots = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        txt = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblAssigmentStudents = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblAssignmentSupervisors = new javax.swing.JTable();
+        btnAssignSupervisor = new javax.swing.JButton();
+        btnUnassignSupervisor = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -468,15 +478,107 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Supervisor List", jPanel3);
 
+        txt.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        txt.setText("FIlter Student Based On SuperVisor:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        tblAssigmentStudents.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Jack", "Bob", "January", "Computer Science", "05/10/25"},
+                {"Bob", "Bob", "May", "Data Science", "1110/25"},
+                {"Chris", "Bob", "May", "Software Engineering", "13/10/25"},
+                {"Mendez", "Bob", "January", "Data Science", "17/10/25"},
+                {"Rodrigo", "-", "January", "Information Technology", "20/10/25"},
+                {"Candice", "-", "September", "Computer Science", "21/10/25"},
+                {"Phil", "John", "January", "Information Technology", "24/10/25"},
+                {"John", "John", "SEptember", "Computer Science", "02510/25"},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Student Name", "Sup.Name", "Intake", "Program", "DOB"
+            }
+        ));
+        jScrollPane6.setViewportView(tblAssigmentStudents);
+
+        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel14.setText("Students:");
+
+        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel15.setText("Supervisors:");
+
+        tblAssignmentSupervisors.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Jack", "32"},
+                {"Bob", "28"},
+                {"Chris", "29"},
+                {"Mendez", "31"},
+                {"Rodrigo", "28"},
+                {"Candice", "29"},
+                {"Phil", "31"},
+                {"John", "28"}
+            },
+            new String [] {
+                "Supervisor Name", "# of Assigned Students"
+            }
+        ));
+        jScrollPane7.setViewportView(tblAssignmentSupervisors);
+
+        btnAssignSupervisor.setText("Assign Supervisor To Student");
+
+        btnUnassignSupervisor.setText("Unnassign Supervisor");
+        btnUnassignSupervisor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUnassignSupervisorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane7)
+                                    .addComponent(btnAssignSupervisor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnUnassignSupervisor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addGap(378, 378, 378))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnAssignSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUnassignSupervisor, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Supervisor Assignment", jPanel4);
@@ -582,20 +684,29 @@ public class FacultyAdminView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalSupervisors1ActionPerformed
 
+    private void btnUnassignSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnassignSupervisorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUnassignSupervisorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignSupervisor;
     private javax.swing.JButton btnQuickAssignments;
     private javax.swing.JButton btnQuickReports;
     private javax.swing.JButton btnQuickStudents;
     private javax.swing.JButton btnQuickSupervisors;
     private javax.swing.JButton btnStudentNameSearch;
     private javax.swing.JButton btnSupervisorNameSearch;
+    private javax.swing.JButton btnUnassignSupervisor;
     private javax.swing.JComboBox<String> comboIntakeFilter;
     private javax.swing.JComboBox<String> comboProgramFilter;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -619,14 +730,19 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblAssigmentStudents;
+    private javax.swing.JTable tblAssignmentSupervisors;
     private javax.swing.JTable tblSupervisorStudents;
     private javax.swing.JTable tblSupervisorTimeslots;
     private javax.swing.JTable tblSupervisors;
+    private javax.swing.JLabel txt;
     private javax.swing.JLabel txtDate;
     private javax.swing.JLabel txtGreeting;
     private javax.swing.JTextField txtStudentName;
