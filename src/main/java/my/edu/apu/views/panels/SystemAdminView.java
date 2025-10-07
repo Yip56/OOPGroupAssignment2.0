@@ -32,17 +32,17 @@ public class SystemAdminView extends javax.swing.JPanel {
         txtUsername = new javax.swing.JLabel();
         txtDate = new javax.swing.JLabel();
         txtTime = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtTotalSupervisors = new javax.swing.JTextField();
+        txtTotalStudents = new javax.swing.JTextField();
+        txtTotalFacultyAdmin = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnQuickUserManagement = new javax.swing.JButton();
+        btnQuickFailedLogins = new javax.swing.JButton();
+        btnQuickAccount = new javax.swing.JButton();
+        btnQuickResetPasswords = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -129,19 +129,19 @@ public class SystemAdminView extends javax.swing.JPanel {
 
         txtTime.setText("4:00 PM");
 
-        jTextField1.setText("235");
-        jTextField1.setFocusable(false);
+        txtTotalSupervisors.setText("235");
+        txtTotalSupervisors.setFocusable(false);
 
-        jTextField2.setText("1153");
-        jTextField2.setFocusable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtTotalStudents.setText("1153");
+        txtTotalStudents.setFocusable(false);
+        txtTotalStudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtTotalStudentsActionPerformed(evt);
             }
         });
 
-        jTextField3.setText("239");
-        jTextField3.setFocusable(false);
+        txtTotalFacultyAdmin.setText("239");
+        txtTotalFacultyAdmin.setFocusable(false);
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Total Students:");
@@ -154,18 +154,33 @@ public class SystemAdminView extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton1.setText("Manage Users");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnQuickUserManagement.setText("Manage Users");
+        btnQuickUserManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnQuickUserManagementActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Monitor Failed Logins");
+        btnQuickFailedLogins.setText("Monitor Failed Logins");
+        btnQuickFailedLogins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuickFailedLoginsActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Account");
+        btnQuickAccount.setText("Account");
+        btnQuickAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuickAccountActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Reset Passwords");
+        btnQuickResetPasswords.setText("Reset Passwords");
+        btnQuickResetPasswords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuickResetPasswordsActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel8.setText("Quick Actions:");
@@ -190,21 +205,21 @@ public class SystemAdminView extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                            .addComponent(txtTotalSupervisors)
+                            .addComponent(txtTotalStudents)
+                            .addComponent(txtTotalFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnQuickFailedLogins, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnQuickResetPasswords, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnQuickAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -233,23 +248,23 @@ public class SystemAdminView extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTotalStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTotalSupervisors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTotalFacultyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnQuickFailedLogins, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                    .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnQuickResetPasswords, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnQuickAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 137, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -845,13 +860,13 @@ public class SystemAdminView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnQuickUserManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickUserManagementActionPerformed
+        this.jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_btnQuickUserManagementActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtTotalStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalStudentsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtTotalStudentsActionPerformed
 
     private void btnUpdateUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserDetailsActionPerformed
         // TODO add your handling code here:
@@ -881,6 +896,18 @@ public class SystemAdminView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignOutActionPerformed
 
+    private void btnQuickFailedLoginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickFailedLoginsActionPerformed
+        this.jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_btnQuickFailedLoginsActionPerformed
+
+    private void btnQuickResetPasswordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickResetPasswordsActionPerformed
+        this.jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_btnQuickResetPasswordsActionPerformed
+
+    private void btnQuickAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickAccountActionPerformed
+        this.jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_btnQuickAccountActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateFacultyAdmin;
@@ -891,6 +918,10 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnDeleteSupervisor;
     private javax.swing.JButton btnDeleteUser;
     private javax.swing.JButton btnEmailSearch;
+    private javax.swing.JButton btnQuickAccount;
+    private javax.swing.JButton btnQuickFailedLogins;
+    private javax.swing.JButton btnQuickResetPasswords;
+    private javax.swing.JButton btnQuickUserManagement;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JButton btnUpdateFacultyAdmin;
     private javax.swing.JButton btnUpdateStudent;
@@ -899,10 +930,6 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnUsernameSearch;
     private javax.swing.JComboBox<String> comboIntake;
     private javax.swing.JComboBox<String> comboProgram;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -946,9 +973,6 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblFacultyAdminAccounts;
@@ -966,6 +990,9 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JTextField txtSupervisorEmail;
     private javax.swing.JTextField txtSupervisorName;
     private javax.swing.JLabel txtTime;
+    private javax.swing.JTextField txtTotalFacultyAdmin;
+    private javax.swing.JTextField txtTotalStudents;
+    private javax.swing.JTextField txtTotalSupervisors;
     private javax.swing.JTextField txtUserEmail;
     private javax.swing.JLabel txtUsername;
     private javax.swing.JLabel txtUsername1;
