@@ -908,6 +908,17 @@ public class SystemAdminView extends javax.swing.JPanel {
         this.jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnQuickAccountActionPerformed
 
+    public javax.swing.JTextField getTxtTotalStudents() {
+        return this.txtTotalStudents;
+    }
+    
+    public javax.swing.JTextField getTxtTotalSupervisors() {
+        return this.txtTotalSupervisors;
+    }
+    
+    public javax.swing.JTextField getTxtTotalFacultyAdmin() {
+        return this.txtTotalFacultyAdmin;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateFacultyAdmin;
