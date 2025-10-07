@@ -40,6 +40,16 @@ public class AppointmentRepository implements IRepository<Appointment> {
         }
         return result;
     }
+    
+    public List<Appointment> findBySupervisorId(String supervisorId) {
+        List<Appointment> result = new ArrayList<>();
+        for (Appointment a : appointments) {
+            if (a.getSupervisorId().equals(supervisorId)) {
+                result.add(a);
+            }
+        }
+        return result;
+    }
 
     @Override
     public void add(Appointment appointment) {

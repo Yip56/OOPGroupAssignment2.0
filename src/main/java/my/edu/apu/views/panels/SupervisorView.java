@@ -31,10 +31,10 @@ public class SupervisorView extends javax.swing.JPanel {
         txtGreeting = new javax.swing.JLabel();
         txtUsername = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblAppoinmentsWidget = new javax.swing.JTable();
+        tblAppointmentsWidget = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnAppoinments = new javax.swing.JButton();
+        btnAppointments = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         txtDate = new javax.swing.JLabel();
@@ -54,12 +54,12 @@ public class SupervisorView extends javax.swing.JPanel {
         txtFeedback = new javax.swing.JTextField();
         btnAddFeedback = new javax.swing.JButton();
         btnDeleteFeedback = new javax.swing.JButton();
-        panelAppoinments = new javax.swing.JPanel();
+        panelAppointments = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tblAppoinments = new javax.swing.JTable();
+        tblAppointments = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        btnApproveAppoinments = new javax.swing.JButton();
-        btnRejectAppoinments = new javax.swing.JButton();
+        btnApproveAppointments = new javax.swing.JButton();
+        btnRejectAppointments = new javax.swing.JButton();
         panelTimeslots = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -90,7 +90,7 @@ public class SupervisorView extends javax.swing.JPanel {
         txtUsername.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtUsername.setText("Rodrigo Mendez.");
 
-        tblAppoinmentsWidget.setModel(new javax.swing.table.DefaultTableModel(
+        tblAppointmentsWidget.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Mr. Joe", "07/08/2025"},
                 {"Mr. Bean", "09/08/2025"},
@@ -102,7 +102,7 @@ public class SupervisorView extends javax.swing.JPanel {
                 "Supervisor", "Date"
             }
         ));
-        jScrollPane1.setViewportView(tblAppoinmentsWidget);
+        jScrollPane1.setViewportView(tblAppointmentsWidget);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Upcoming Appointments:");
@@ -110,11 +110,11 @@ public class SupervisorView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Quick Actions:");
 
-        btnAppoinments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAppoinments.setText("Update Appointments Slots");
-        btnAppoinments.addActionListener(new java.awt.event.ActionListener() {
+        btnAppointments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAppointments.setText("Update Appointments Slots");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAppoinmentsActionPerformed(evt);
+                btnAppointmentsActionPerformed(evt);
             }
         });
 
@@ -139,61 +139,60 @@ public class SupervisorView extends javax.swing.JPanel {
         panelDashboard.setLayout(panelDashboardLayout);
         panelDashboardLayout.setHorizontalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDashboardLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+            .addGroup(panelDashboardLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGreeting)
-                    .addComponent(txtUsername))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtDate)
-                    .addComponent(txtTime))
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDashboardLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDashboardLayout.createSequentialGroup()
-                            .addComponent(btnAppoinments, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(12, 12, 12))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDashboardLayout.createSequentialGroup()
-                            .addComponent(btnAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(200, 200, 200)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDashboardLayout.createSequentialGroup()
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addComponent(txtUsername)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtDate))
+                            .addComponent(txtTime))
+                        .addGap(15, 15, 15))
+                    .addGroup(panelDashboardLayout.createSequentialGroup()
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(panelDashboardLayout.createSequentialGroup()
+                                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtGreeting))
+                        .addContainerGap(139, Short.MAX_VALUE))))
         );
         panelDashboardLayout.setVerticalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addComponent(txtGreeting)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGreeting)
-                    .addComponent(txtDate))
+                    .addComponent(txtDate)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(txtTime)
+                .addGap(4, 4, 4)
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTime))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAppoinments, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                        .addComponent(btnAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Dashboard", panelDashboard);
@@ -223,7 +222,7 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGroup(panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         panelStudentsLayout.setVerticalGroup(
             panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +285,7 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGroup(panelFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(panelFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
@@ -322,7 +321,7 @@ public class SupervisorView extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Feedback", panelFeedback);
 
-        tblAppoinments.setModel(new javax.swing.table.DefaultTableModel(
+        tblAppointments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -333,53 +332,53 @@ public class SupervisorView extends javax.swing.JPanel {
                 "Student Name", "Requested Appoinment Date", "Status"
             }
         ));
-        jScrollPane5.setViewportView(tblAppoinments);
+        jScrollPane5.setViewportView(tblAppointments);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Appoinment Requests:");
 
-        btnApproveAppoinments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnApproveAppoinments.setText("Approve Appoinment");
+        btnApproveAppointments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnApproveAppointments.setText("Approve Appoinment");
 
-        btnRejectAppoinments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRejectAppoinments.setText("Reject Appoinment");
+        btnRejectAppointments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRejectAppointments.setText("Reject Appoinment");
 
-        javax.swing.GroupLayout panelAppoinmentsLayout = new javax.swing.GroupLayout(panelAppoinments);
-        panelAppoinments.setLayout(panelAppoinmentsLayout);
-        panelAppoinmentsLayout.setHorizontalGroup(
-            panelAppoinmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAppoinmentsLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAppointmentsLayout = new javax.swing.GroupLayout(panelAppointments);
+        panelAppointments.setLayout(panelAppointmentsLayout);
+        panelAppointmentsLayout.setHorizontalGroup(
+            panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAppointmentsLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(panelAppoinmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAppoinmentsLayout.createSequentialGroup()
+                .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelAppoinmentsLayout.createSequentialGroup()
+                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addGroup(panelAppoinmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnApproveAppoinments, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(btnRejectAppoinments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnApproveAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                            .addComponent(btnRejectAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(50, 50, 50))))
         );
-        panelAppoinmentsLayout.setVerticalGroup(
-            panelAppoinmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAppoinmentsLayout.createSequentialGroup()
+        panelAppointmentsLayout.setVerticalGroup(
+            panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAppointmentsLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGroup(panelAppoinmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelAppoinmentsLayout.createSequentialGroup()
+                .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnApproveAppoinments, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnApproveAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnRejectAppoinments, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelAppoinmentsLayout.createSequentialGroup()
+                        .addComponent(btnRejectAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Appoinments", panelAppoinments);
+        jTabbedPane1.addTab("Appoinments", panelAppointments);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Appoinment Requests:");
@@ -462,7 +461,7 @@ public class SupervisorView extends javax.swing.JPanel {
                             .addComponent(btnDeleteTImeslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCreateTImeslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel4))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         panelTimeslotsLayout.setVerticalGroup(
             panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,7 +521,7 @@ public class SupervisorView extends javax.swing.JPanel {
                     .addGroup(panelAccountsLayout.createSequentialGroup()
                         .addGap(517, 517, 517)
                         .addComponent(btnSignOut)))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         panelAccountsLayout.setVerticalGroup(
             panelAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -562,9 +561,9 @@ public class SupervisorView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddFeedbackActionPerformed
 
-    private void btnAppoinmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppoinmentsActionPerformed
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAppoinmentsActionPerformed
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
 
     private void comboDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDayActionPerformed
         // TODO add your handling code here:
@@ -578,17 +577,24 @@ public class SupervisorView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteTImeslotActionPerformed
 
+    public javax.swing.JTable getTblAppointmentsWidget() {
+        return this.tblAppointmentsWidget;
+    }
+    
+    public javax.swing.JTable getTblAppointments() {
+        return this.tblAppointments;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAddFeedback;
-    private javax.swing.JButton btnAppoinments;
-    private javax.swing.JButton btnApproveAppoinments;
+    private javax.swing.JButton btnAppointments;
+    private javax.swing.JButton btnApproveAppointments;
     private javax.swing.JButton btnCreateTImeslot;
     private javax.swing.JButton btnDeleteFeedback;
     private javax.swing.JButton btnDeleteTImeslot;
     private javax.swing.JButton btnFeedback;
-    private javax.swing.JButton btnRejectAppoinments;
+    private javax.swing.JButton btnRejectAppointments;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JComboBox<String> comboDay;
     private javax.swing.JComboBox<String> comboMonth;
@@ -617,13 +623,13 @@ public class SupervisorView extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JList<String> listStudentName;
     private javax.swing.JPanel panelAccounts;
-    private javax.swing.JPanel panelAppoinments;
+    private javax.swing.JPanel panelAppointments;
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JPanel panelFeedback;
     private javax.swing.JPanel panelStudents;
     private javax.swing.JPanel panelTimeslots;
-    private javax.swing.JTable tblAppoinments;
-    private javax.swing.JTable tblAppoinmentsWidget;
+    private javax.swing.JTable tblAppointments;
+    private javax.swing.JTable tblAppointmentsWidget;
     private javax.swing.JTable tblFeedback;
     private javax.swing.JTable tblStudents;
     private javax.swing.JTable tblTimeslots;

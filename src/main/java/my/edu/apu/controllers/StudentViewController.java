@@ -91,7 +91,7 @@ public class StudentViewController {
 
         // Assuming you already have appointmentRepo and supervisorRepo available
         List<Appointment> appointments = appointmentRepo.findByStudentId(studentId);
-
+        
         // Clear tables before adding rows
         appointmentWidgetModel.setRowCount(0);
         appointmentModel.setRowCount(0);
