@@ -56,6 +56,18 @@ public class UserRepository implements IRepository<User> {
         return Optional.empty();
     }
 
+    public void update(User updatedUser) {
+        for (int i = 0; i < users.size(); i++) {
+            User current = users.get(i);
+            if (current.getId().equals(updatedUser.getId())) {
+                users.set(i, updatedUser);
+                save();
+                return;
+            }
+        }
+        throw new NoSuchElementException("User with ID " + updatedUser.getId() + " not found.");
+    }
+
     @Override
     public void add(User user) {
         users.add(user); // Add a user to the list

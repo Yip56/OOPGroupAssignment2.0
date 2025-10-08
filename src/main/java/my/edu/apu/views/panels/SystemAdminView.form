@@ -323,7 +323,6 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtUsernameSearch" max="32767" attributes="0"/>
-                                  <Component id="btnUsernameSearch" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="btnUpdateUserDetails" alignment="0" pref="356" max="32767" attributes="0"/>
@@ -334,7 +333,7 @@
                                           </Group>
                                           <Component id="txtEmailSearch" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtUsername3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnEmailSearch" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="btnResetSearch" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jSeparator2" max="32767" attributes="0"/>
                                           <Component id="txtName" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtUserEmail" alignment="1" max="32767" attributes="0"/>
@@ -363,16 +362,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="txtUsernameSearch" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnUsernameSearch" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtUsername3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtEmailSearch" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnEmailSearch" min="-2" pref="41" max="-2" attributes="0"/>
-                                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                                      <Component id="btnResetSearch" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <EmptySpace pref="74" max="32767" attributes="0"/>
                                       <Component id="jSeparator2" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                       <Component id="txtUsername4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtName" min="-2" max="-2" attributes="0"/>
@@ -475,16 +472,11 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUsernameSearch">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnUsernameSearch">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Search by Name"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="txtEmailSearch">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnEmailSearch">
+                    <Component class="javax.swing.JButton" name="btnResetSearch">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Search by Email"/>
+                        <Property name="text" type="java.lang.String" value="Reset Search"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="txtUsername3">
