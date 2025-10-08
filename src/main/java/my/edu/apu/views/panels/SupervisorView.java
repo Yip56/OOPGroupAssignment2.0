@@ -56,10 +56,12 @@ public class SupervisorView extends javax.swing.JPanel {
         btnDeleteFeedback = new javax.swing.JButton();
         panelAppointments = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tblAppointments = new javax.swing.JTable();
+        tblAppointmentRequests = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnApproveAppointments = new javax.swing.JButton();
         btnRejectAppointments = new javax.swing.JButton();
+        btnDeleteAllRejectedAppointments = new javax.swing.JButton();
+        btnSetAppointmentAsPending = new javax.swing.JButton();
         panelTimeslots = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -321,7 +323,7 @@ public class SupervisorView extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Feedback", panelFeedback);
 
-        tblAppointments.setModel(new javax.swing.table.DefaultTableModel(
+        tblAppointmentRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -332,7 +334,7 @@ public class SupervisorView extends javax.swing.JPanel {
                 "Student Name", "Requested Appoinment Date", "Status"
             }
         ));
-        jScrollPane5.setViewportView(tblAppointments);
+        jScrollPane5.setViewportView(tblAppointmentRequests);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Appoinment Requests:");
@@ -343,6 +345,12 @@ public class SupervisorView extends javax.swing.JPanel {
         btnRejectAppointments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRejectAppointments.setText("Reject Appoinment");
 
+        btnDeleteAllRejectedAppointments.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeleteAllRejectedAppointments.setText("Delete All Rejected Appointments");
+
+        btnSetAppointmentAsPending.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSetAppointmentAsPending.setText("Set Appointment as Pending");
+
         javax.swing.GroupLayout panelAppointmentsLayout = new javax.swing.GroupLayout(panelAppointments);
         panelAppointments.setLayout(panelAppointmentsLayout);
         panelAppointmentsLayout.setHorizontalGroup(
@@ -352,30 +360,41 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnApproveAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(btnRejectAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(50, 50, 50))))
+                        .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAppointmentsLayout.createSequentialGroup()
+                                .addComponent(btnApproveAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))
+                            .addGroup(panelAppointmentsLayout.createSequentialGroup()
+                                .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnRejectAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDeleteAllRejectedAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnSetAppointmentAsPending, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))))
         );
         panelAppointmentsLayout.setVerticalGroup(
             panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAppointmentsLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnApproveAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRejectAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelAppointmentsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnApproveAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSetAppointmentAsPending, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRejectAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteAllRejectedAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))))
         );
 
         jTabbedPane1.addTab("Appoinments", panelAppointments);
@@ -581,8 +600,25 @@ public class SupervisorView extends javax.swing.JPanel {
         return this.tblAppointmentsWidget;
     }
     
-    public javax.swing.JTable getTblAppointments() {
-        return this.tblAppointments;
+        
+    public javax.swing.JTable getTblAppointmentRequests() {
+        return this.tblAppointmentRequests;
+    }
+    
+    public javax.swing.JButton getBtnApproveAppointments() {
+        return this.btnApproveAppointments;
+    }
+    
+    public javax.swing.JButton getBtnRejectAppointments() {
+        return this.btnRejectAppointments;
+    }
+    
+    public javax.swing.JButton getBtnDeleteAllRejectedAppointments() {
+        return this.btnDeleteAllRejectedAppointments;
+    }
+    
+    public javax.swing.JButton getBtnSetAppointmentAsPending() {
+        return this.btnSetAppointmentAsPending;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -591,10 +627,12 @@ public class SupervisorView extends javax.swing.JPanel {
     private javax.swing.JButton btnAppointments;
     private javax.swing.JButton btnApproveAppointments;
     private javax.swing.JButton btnCreateTImeslot;
+    private javax.swing.JButton btnDeleteAllRejectedAppointments;
     private javax.swing.JButton btnDeleteFeedback;
     private javax.swing.JButton btnDeleteTImeslot;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnRejectAppointments;
+    private javax.swing.JButton btnSetAppointmentAsPending;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JComboBox<String> comboDay;
     private javax.swing.JComboBox<String> comboMonth;
@@ -628,7 +666,7 @@ public class SupervisorView extends javax.swing.JPanel {
     private javax.swing.JPanel panelFeedback;
     private javax.swing.JPanel panelStudents;
     private javax.swing.JPanel panelTimeslots;
-    private javax.swing.JTable tblAppointments;
+    private javax.swing.JTable tblAppointmentRequests;
     private javax.swing.JTable tblAppointmentsWidget;
     private javax.swing.JTable tblFeedback;
     private javax.swing.JTable tblStudents;
