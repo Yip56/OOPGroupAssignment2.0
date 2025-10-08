@@ -16,6 +16,7 @@ import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.views.panels.SupervisorView;
 import my.edu.apu.controllers.StudentViewController;
 import my.edu.apu.utils.AppNavigator;
+import my.edu.apu.views.panels.FacultyAdminView;
 import my.edu.apu.views.panels.SystemAdminView;
 
 /**
@@ -83,6 +84,11 @@ public class AuthController {
                     SupervisorView supervisorView = new SupervisorView();
                     new SupervisorViewController(supervisorView, navigator, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
                     mainFrame.setContentPane(supervisorView);
+                }
+                case Role.FACULTY_ADMIN -> {
+                    FacultyAdminView facultyAdminView = new FacultyAdminView();
+                    new FacultyAdminController(facultyAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
+                    mainFrame.setContentPane(facultyAdminView);
                 }
                 case Role.SYSTEM_ADMIN -> {
                     SystemAdminView systemAdminView = new SystemAdminView();
