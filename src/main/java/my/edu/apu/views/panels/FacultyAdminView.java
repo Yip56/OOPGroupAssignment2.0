@@ -74,9 +74,9 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txt = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboStudentFilter = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tblAssigmentStudents = new javax.swing.JTable();
+        tblAssignmentStudents = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -520,11 +520,11 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jTabbedPane1.addTab("Supervisor List", jPanel3);
 
         txt.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        txt.setText("FIlter Student Based On Supervisor:");
+        txt.setText("FIlter Student by Supervisor:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboStudentFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        tblAssigmentStudents.setModel(new javax.swing.table.DefaultTableModel(
+        tblAssignmentStudents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Jack", "Bob", "January", "Computer Science", "05/10/25"},
                 {"Bob", "Bob", "May", "Data Science", "1110/25"},
@@ -540,7 +540,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Student Name", "Sup.Name", "Intake", "Program", "DOB"
             }
         ));
-        jScrollPane6.setViewportView(tblAssigmentStudents);
+        jScrollPane6.setViewportView(tblAssignmentStudents);
 
         jLabel14.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel14.setText("Students:");
@@ -581,7 +581,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboStudentFilter, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addComponent(txt)
@@ -605,7 +605,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(txt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboStudentFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -664,7 +664,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jTabbedPane2.addTab("Supervisor Workload Report", jPanel7);
 
         jLabel13.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel13.setText("Total Student:");
+        jLabel13.setText("Total Students:");
 
         txtReportStudentCount.setText("1156");
 
@@ -959,17 +959,25 @@ public class FacultyAdminView extends javax.swing.JPanel {
     public javax.swing.JTable getTblStudents() {
         return this.tblStudents;
     }
-    
+
     public javax.swing.JTable getTblSupervisors() {
         return this.tblSupervisors;
     }
-    
+
     public javax.swing.JTable getTblSupervisorStudents() {
         return this.tblSupervisorStudents;
     }
-    
+
     public javax.swing.JTable getTblSupervisorTimeslots() {
         return this.tblSupervisorTimeslots;
+    }
+
+    public javax.swing.JTable getTblAssignmentStudents() {
+        return this.tblAssignmentStudents;
+    }
+
+    public javax.swing.JTable getTblAssignmentSupervisors() {
+        return this.tblAssignmentSupervisors;
     }
 
     public javax.swing.JComboBox getComboIntakeFilter() {
@@ -980,6 +988,10 @@ public class FacultyAdminView extends javax.swing.JPanel {
         return this.comboProgramFilter;
     }
 
+    public javax.swing.JComboBox getComboStudentFilter() {
+        return this.comboStudentFilter;
+    }
+
     public javax.swing.JTextField getTxtStudentName() {
         return this.txtStudentName;
     }
@@ -987,9 +999,17 @@ public class FacultyAdminView extends javax.swing.JPanel {
     public javax.swing.JTextField getTxtSupervisorName() {
         return this.txtSupervisorName;
     }
-    
+
     public javax.swing.JButton getBtnResetSearchFilters() {
         return this.btnResetSearchFilters;
+    }
+
+    public javax.swing.JButton getBtnAssignSupervisor() {
+        return this.btnAssignSupervisor;
+    }
+
+    public javax.swing.JButton getBtnUnassignSupervisor() {
+        return this.btnUnassignSupervisor;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1002,8 +1022,8 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnUnassignSupervisor;
     private javax.swing.JComboBox<String> comboIntakeFilter;
     private javax.swing.JComboBox<String> comboProgramFilter;
+    private javax.swing.JComboBox<String> comboStudentFilter;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1053,7 +1073,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable tblAssigmentStudents;
+    private javax.swing.JTable tblAssignmentStudents;
     private javax.swing.JTable tblAssignmentSupervisors;
     private javax.swing.JTable tblReortSepIntakePrograms;
     private javax.swing.JTable tblReportJanInakePrograms;
