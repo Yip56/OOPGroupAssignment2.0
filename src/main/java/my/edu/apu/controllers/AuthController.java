@@ -6,6 +6,7 @@ package my.edu.apu.controllers;
 
 import java.util.Optional;
 import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import my.edu.apu.enums.Role;
 import my.edu.apu.models.User;
@@ -15,6 +16,8 @@ import my.edu.apu.views.MainFrame;
 import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.views.panels.SupervisorView;
 import my.edu.apu.controllers.StudentViewController;
+import my.edu.apu.models.Student;
+import my.edu.apu.models.Supervisor;
 import my.edu.apu.utils.AppNavigator;
 import my.edu.apu.views.panels.FacultyAdminView;
 import my.edu.apu.views.panels.SystemAdminView;
@@ -44,6 +47,10 @@ public class AuthController {
 
         // Authenticate the user when the login button is pressed
         loginFrame.getLoginButton().addActionListener(e -> authenticate());
+
+        // Set the loginButton as the default button
+        JRootPane root = loginFrame.getRootPane();
+        root.setDefaultButton(loginFrame.getLoginButton());
     }
 
     public void displayLoginFrame() {
@@ -63,11 +70,23 @@ public class AuthController {
     }
 
     private void handleAuthentication(User user, String password) {
-        if (user.getPassword().equals(password)) {
-            displayMainFrame(user);
-        } else {
+        // Ensure password is correct
+        if (!user.getPassword().equals(password)) {
             displayErrorDialog("Your password is incorrect, please try again.");
+        } // Ensure student has supervisor assigned (if user is a student)
+        else if (user.getRole().equals(Role.STUDENT) && !isSupervisorAssigned(user)) {
+            displayErrorDialog("You have not been assigned a supervisor yet. Please try again later.");
+        } // Display the mainframe if authenticated
+        else {
+            displayMainFrame(user);
         }
+    }
+
+    private boolean isSupervisorAssigned(User user) {
+        // Ensure student has a supervisor
+        Student student = studentRepo.findById(user.getId()).get();
+        Optional<Supervisor> supervisorProfile = supervisorRepo.findById(student.getSupervisorId());
+        return !supervisorProfile.isEmpty();
     }
 
     private void displayMainFrame(User user) {
