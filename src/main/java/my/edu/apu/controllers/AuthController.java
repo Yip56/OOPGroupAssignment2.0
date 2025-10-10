@@ -114,7 +114,6 @@ public class AuthController {
                     new SystemAdminController(systemAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
                     mainFrame.setContentPane(systemAdminView);
                 }
-
             }
 
             mainFrame.setLocationRelativeTo(null); // Center on screen

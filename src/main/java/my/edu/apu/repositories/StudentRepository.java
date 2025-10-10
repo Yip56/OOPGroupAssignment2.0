@@ -38,6 +38,17 @@ public class StudentRepository implements IRepository<Student> {
         return Optional.empty();
     }
 
+    public List<Student> findBySupervisorId(String supervisorId) {
+        List<Student> filteredStudents = new ArrayList<>();
+        for (Student stud : students) {
+            if (stud.getSupervisorId().equals(supervisorId)) {
+                filteredStudents.add(stud);
+            }
+        }
+
+        return filteredStudents;
+    }
+
     @Override
     public void add(Student student) {
         students.add(student);

@@ -4,6 +4,7 @@
  */
 package my.edu.apu.controllers;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +36,11 @@ public class FacultyAdminController {
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy"); // e.g. 05/10/25
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");    // e.g. 14:30
 
+    // Set up table models
     private DefaultTableModel studentModel;
+    private DefaultTableModel supervisorListModel;
+    private DefaultTableModel supervisorStudentsListModel;
+    private DefaultTableModel supervisorTimeslotsModel;
 
     public FacultyAdminController(FacultyAdminView facultyAdminView, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, String facultyAdminId) {
         this.facultyAdminView = facultyAdminView;
@@ -54,6 +59,8 @@ public class FacultyAdminController {
         initializeDashboard();
         initializeStudents();
         manageStudentSearch();
+        initializeSupervisors();
+        manageSupervisorList();
     }
 
     private void initializeDashboard() {
@@ -76,7 +83,7 @@ public class FacultyAdminController {
 
     private void initializeStudents() {
         // Create table model
-        String[] columns = {"ID", "Student Name", "Sup. Name", "Intake", "Program", "DOB"};
+        String[] columns = {"Student Name", "Sup. Name", "Intake", "Program", "DOB"};
         studentModel = new DefaultTableModel(columns, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -87,12 +94,8 @@ public class FacultyAdminController {
         // Fill up model with data
         loadStudents(false);
 
-        // Attach model to timeslot
+        // Attach model to table
         facultyAdminView.getTblStudents().setModel(studentModel);
-
-        // only hide the first column (Feedback ID)
-        TableColumn idColumn = facultyAdminView.getTblStudents().getColumnModel().getColumn(0);
-        facultyAdminView.getTblStudents().removeColumn(idColumn);
     }
 
     private void loadStudents(boolean applyFilters) {
@@ -155,7 +158,7 @@ public class FacultyAdminController {
             }
 
             // Add row to student model
-            studentModel.addRow(new Object[]{stud.getId(), studentName, supName, intake, program, dob});
+            studentModel.addRow(new Object[]{studentName, supName, intake, program, dob});
         }
     }
 
@@ -183,5 +186,91 @@ public class FacultyAdminController {
             facultyAdminView.getComboIntakeFilter().setSelectedIndex(0);
             facultyAdminView.getComboProgramFilter().setSelectedIndex(0);
         });
+    }
+
+    private void initializeSupervisors() {
+        // Initialize supervisor list table model
+        String[] supervisorColumns = {"ID", "Supervisor Name", "# of Assigned Students"};
+        supervisorListModel = new DefaultTableModel(supervisorColumns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Ensure cells are not editable
+            }
+        };
+
+        // Fill up table model
+        List<Supervisor> supervisors = supervisorRepo.findAll();
+        for (Supervisor sup : supervisors) {
+            int totalAssignedStudents = studentRepo.findBySupervisorId(sup.getId()).size();
+            supervisorListModel.addRow(new Object[]{sup.getId(), sup.getName(), Integer.toString(totalAssignedStudents)});
+        }
+
+        // Initialize the supervisor's students table model
+        String[] supervisorStudentsColumns = {"Student Name", "Intake", "Program", "DOB"};
+        supervisorStudentsListModel = new DefaultTableModel(supervisorStudentsColumns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Ensure cells are not editable
+            }
+        };
+
+        // Initialize the supervisor's timeslots table model
+        String[] supervisorTimeslotsColumns = {"Date", "Time"};
+        supervisorTimeslotsModel = new DefaultTableModel(supervisorTimeslotsColumns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Ensure cells are not editable
+            }
+        };
+
+        // Attach models to table respectively
+        facultyAdminView.getTblSupervisors().setModel(supervisorListModel);
+        facultyAdminView.getTblSupervisorStudents().setModel(supervisorStudentsListModel);
+        facultyAdminView.getTblSupervisorTimeslots().setModel(supervisorTimeslotsModel);
+
+        // hide the first column (ID) of the supervisor list table
+        TableColumn idColumn = facultyAdminView.getTblSupervisors().getColumnModel().getColumn(0);
+        facultyAdminView.getTblSupervisors().removeColumn(idColumn);
+    }
+
+    private void manageSupervisorList() {
+        facultyAdminView.getTblSupervisors().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent e) {
+                displaySupervisorDetails();
+            }
+        });
+    }
+
+    private void displaySupervisorDetails() {
+        // Get selected supervisor ID
+        int row = facultyAdminView.getTblSupervisors().getSelectedRow();
+        String supervisorId = String.valueOf(supervisorListModel.getValueAt(row, 0));
+
+        // Find respective supervisor and their details
+        Supervisor supervisor = supervisorRepo.findById(supervisorId).get();
+        List<Student> students = studentRepo.findBySupervisorId(supervisorId);
+        List<LocalDateTime> availableTimeslots = supervisor.getAvailableTimeslots();
+
+        // Empty out supervisor's details' table models
+        supervisorStudentsListModel.setRowCount(0);
+        supervisorTimeslotsModel.setRowCount(0);
+
+        // Fill up supervisor's student table
+        for (Student stud : students) {
+            String intake = stud.getIntake().toString();
+            String program = stud.getProgram().toString();
+            String dob = stud.getDob().format(dateFormatter);
+
+            supervisorStudentsListModel.addRow(new Object[]{stud.getName(), intake, program, dob});
+        }
+
+        // Fill up supervisors available timeslots
+        for (LocalDateTime timeslot : availableTimeslots) {
+            String date = timeslot.format(dateFormatter);
+            String time = timeslot.format(timeFormatter);
+
+            supervisorTimeslotsModel.addRow(new Object[]{date, time});
+        }
     }
 }

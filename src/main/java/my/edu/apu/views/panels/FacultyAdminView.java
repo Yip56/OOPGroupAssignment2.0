@@ -418,7 +418,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jTabbedPane1.addTab("Student List", jPanel2);
 
         txttitle.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        txttitle.setText("Supervisors");
+        txttitle.setText("Supervisors:");
 
         tblSupervisors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -472,6 +472,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Date", "Time"
             }
         ));
+        tblSupervisorTimeslots.setEnabled(false);
         jScrollPane5.setViewportView(tblSupervisorTimeslots);
 
         jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -519,7 +520,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jTabbedPane1.addTab("Supervisor List", jPanel3);
 
         txt.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        txt.setText("FIlter Student Based On SuperVisor:");
+        txt.setText("FIlter Student Based On Supervisor:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -957,6 +958,18 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
     public javax.swing.JTable getTblStudents() {
         return this.tblStudents;
+    }
+    
+    public javax.swing.JTable getTblSupervisors() {
+        return this.tblSupervisors;
+    }
+    
+    public javax.swing.JTable getTblSupervisorStudents() {
+        return this.tblSupervisorStudents;
+    }
+    
+    public javax.swing.JTable getTblSupervisorTimeslots() {
+        return this.tblSupervisorTimeslots;
     }
 
     public javax.swing.JComboBox getComboIntakeFilter() {
