@@ -1,9 +1,9 @@
 package my.edu.apu.enums;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
-
 
 /**
  *
@@ -18,6 +18,15 @@ public enum Intake {
 
     Intake(String displayName) {
         this.displayName = displayName;
+    }
+
+    public static Intake fromDisplayName(String displayName) {
+        for (Intake i : Intake.values()) {
+            if (i.displayName.equalsIgnoreCase(displayName)) {
+                return i;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with display name " + displayName);
     }
 
     @Override

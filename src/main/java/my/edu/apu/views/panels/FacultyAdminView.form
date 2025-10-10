@@ -412,8 +412,7 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="btnStudentNameSearch" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnSupervisorNameSearch" alignment="0" pref="342" max="32767" attributes="0"/>
+                                  <Component id="btnResetSearchFilters" alignment="0" pref="342" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -442,10 +441,8 @@
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtSupervisorName" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
-                                      <Component id="btnStudentNameSearch" min="-2" pref="60" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnSupervisorNameSearch" min="-2" pref="60" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="301" max="-2" attributes="0"/>
+                                      <Component id="btnResetSearchFilters" min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" max="32767" attributes="0"/>
                               </Group>
@@ -657,9 +654,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSupervisorName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Bob"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -670,24 +664,13 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtStudentName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Jack"/>
-              </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSupervisorNameSearch">
+            <Component class="javax.swing.JButton" name="btnResetSearchFilters">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica Neue" size="13" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Search By Supervisor Name"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnStudentNameSearch">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Helvetica Neue" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Search By Student Name"/>
+                <Property name="text" type="java.lang.String" value="Reset Search Filters"/>
               </Properties>
             </Component>
           </SubComponents>

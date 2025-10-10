@@ -61,8 +61,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
         txtSupervisorName = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtStudentName = new javax.swing.JTextField();
-        btnSupervisorNameSearch = new javax.swing.JButton();
-        btnStudentNameSearch = new javax.swing.JButton();
+        btnResetSearchFilters = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txttitle = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -345,18 +344,11 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel9.setText("Search by Student Name:");
 
-        txtSupervisorName.setText("Bob");
-
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setText("Search by Supervisor Name:");
 
-        txtStudentName.setText("Jack");
-
-        btnSupervisorNameSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnSupervisorNameSearch.setText("Search By Supervisor Name");
-
-        btnStudentNameSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnStudentNameSearch.setText("Search By Student Name");
+        btnResetSearchFilters.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnResetSearchFilters.setText("Reset Search Filters");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -389,8 +381,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnStudentNameSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSupervisorNameSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)))))
+                            .addComponent(btnResetSearchFilters, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,10 +404,8 @@ public class FacultyAdminView extends javax.swing.JPanel {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSupervisorName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(235, 235, 235)
-                                .addComponent(btnStudentNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSupervisorNameSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(301, 301, 301)
+                                .addComponent(btnResetSearchFilters, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2))
                         .addGap(26, 26, 26))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -957,22 +946,46 @@ public class FacultyAdminView extends javax.swing.JPanel {
     public javax.swing.JTextField getTxtTotalStudents() {
         return this.txtTotalStudents;
     }
-    
-    public javax.swing.JTextField getTxtTotalSupervisors(){
+
+    public javax.swing.JTextField getTxtTotalSupervisors() {
         return this.txtTotalSupervisors;
     }
-    
-    public javax.swing.JTextField getTxtUnassignedStudents(){
+
+    public javax.swing.JTextField getTxtUnassignedStudents() {
         return this.txtUnassignedStudents;
     }
+
+    public javax.swing.JTable getTblStudents() {
+        return this.tblStudents;
+    }
+
+    public javax.swing.JComboBox getComboIntakeFilter() {
+        return this.comboIntakeFilter;
+    }
+
+    public javax.swing.JComboBox getComboProgramFilter() {
+        return this.comboProgramFilter;
+    }
+
+    public javax.swing.JTextField getTxtStudentName() {
+        return this.txtStudentName;
+    }
+
+    public javax.swing.JTextField getTxtSupervisorName() {
+        return this.txtSupervisorName;
+    }
+    
+    public javax.swing.JButton getBtnResetSearchFilters() {
+        return this.btnResetSearchFilters;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignSupervisor;
     private javax.swing.JButton btnQuickAssignments;
     private javax.swing.JButton btnQuickReports;
     private javax.swing.JButton btnQuickStudents;
     private javax.swing.JButton btnQuickSupervisors;
-    private javax.swing.JButton btnStudentNameSearch;
-    private javax.swing.JButton btnSupervisorNameSearch;
+    private javax.swing.JButton btnResetSearchFilters;
     private javax.swing.JButton btnUnassignSupervisor;
     private javax.swing.JComboBox<String> comboIntakeFilter;
     private javax.swing.JComboBox<String> comboProgramFilter;
