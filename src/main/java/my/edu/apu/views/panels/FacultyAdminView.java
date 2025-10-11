@@ -95,23 +95,18 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jScrollPane10 = new javax.swing.JScrollPane();
         tblReportStudentByIntake = new javax.swing.JTable();
         jScrollPane11 = new javax.swing.JScrollPane();
-        tblReportStudentsByPRogram = new javax.swing.JTable();
+        tblReportStudentsByProgram = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
-        tblReportJanInakePrograms = new javax.swing.JTable();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        tblReortSepIntakePrograms = new javax.swing.JTable();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        tblReportMayIntakePrograms = new javax.swing.JTable();
-        jLabel17 = new javax.swing.JLabel();
+        tblReportProgramCountsByIntake = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        tblSupervisorWorkloadReport1 = new javax.swing.JTable();
+        tblTimeslotUtilizationReport = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -249,7 +244,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                             .addComponent(btnQuickStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnQuickSupervisors, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                            .addComponent(btnQuickSupervisors, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
                             .addComponent(btnQuickReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -363,14 +358,14 @@ public class FacultyAdminView extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboIntakeFilter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel7)
+                            .addComponent(comboIntakeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(comboProgramFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboProgramFilter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,7 +376,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnResetSearchFilters, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)))))
+                            .addComponent(btnResetSearchFilters, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +384,9 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtTitle)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitle)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -409,9 +406,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                             .addComponent(jScrollPane2))
                         .addGap(26, 26, 26))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
+                        .addComponent(jLabel7)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -493,7 +488,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addContainerGap())
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel12)
@@ -582,22 +577,21 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comboStudentFilter, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(txt)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addComponent(jLabel14)
-                                    .addGap(0, 563, Short.MAX_VALUE))
-                                .addComponent(jScrollPane6))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnUnassignSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel15)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnAssignSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txt)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(0, 606, Short.MAX_VALUE))
+                            .addComponent(jScrollPane6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUnassignSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAssignSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -645,20 +639,21 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Supervisor Name", "Number of Student Assigned", "Peding Appointments", "Approved Appointments", "Available Timeslots"
             }
         ));
+        tblSupervisorWorkloadReport.setEnabled(false);
         jScrollPane8.setViewportView(tblSupervisorWorkloadReport);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Supervisor Workload Report", jPanel7);
@@ -667,6 +662,7 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jLabel13.setText("Total Students:");
 
         txtReportStudentCount.setText("1156");
+        txtReportStudentCount.setFocusable(false);
 
         jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel16.setText("Student Count By Intake:");
@@ -679,9 +675,10 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "January", "May", "September"
             }
         ));
+        tblReportStudentByIntake.setEnabled(false);
         jScrollPane10.setViewportView(tblReportStudentByIntake);
 
-        tblReportStudentsByPRogram.setModel(new javax.swing.table.DefaultTableModel(
+        tblReportStudentsByProgram.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"428", "495", "230", "230"}
             },
@@ -689,9 +686,10 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Computer Science", "Data Science", "Software Engineering", "Computer Technology"
             }
         ));
-        jScrollPane11.setViewportView(tblReportStudentsByPRogram);
+        tblReportStudentsByProgram.setEnabled(false);
+        jScrollPane11.setViewportView(tblReportStudentsByProgram);
 
-        tblReportJanInakePrograms.setModel(new javax.swing.table.DefaultTableModel(
+        tblReportProgramCountsByIntake.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Computer Science", "132"},
                 {"Data Science", "56"},
@@ -702,42 +700,14 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Course", "Number"
             }
         ));
-        jScrollPane12.setViewportView(tblReportJanInakePrograms);
-
-        tblReortSepIntakePrograms.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Computer Science", "132"},
-                {"Data Science", "56"},
-                {"Software Engineering", "243"},
-                {"Computer Technology", "321"}
-            },
-            new String [] {
-                "Course", "Number"
-            }
-        ));
-        jScrollPane13.setViewportView(tblReortSepIntakePrograms);
-
-        tblReportMayIntakePrograms.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Computer Science", "132"},
-                {"Data Science", "56"},
-                {"Software Engineering", "243"},
-                {"Computer Technology", "321"}
-            },
-            new String [] {
-                "Course", "Number"
-            }
-        ));
-        jScrollPane14.setViewportView(tblReportMayIntakePrograms);
-
-        jLabel17.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel17.setText("May Intake:");
+        tblReportProgramCountsByIntake.setEnabled(false);
+        jScrollPane12.setViewportView(tblReportProgramCountsByIntake);
 
         jLabel18.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel18.setText("January Intake:");
+        jLabel18.setText("Program Counts By Intake:");
 
-        jLabel19.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel19.setText("September Intake:");
+        jLabel22.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel22.setText("Student Count By Program:");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -745,65 +715,51 @@ public class FacultyAdminView extends javax.swing.JPanel {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel16)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                        .addComponent(txtReportStudentCount))
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addGap(165, 165, 165))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                            .addComponent(txtReportStudentCount))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(194, 194, 194)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 816, Short.MAX_VALUE))
+            .addComponent(jScrollPane12)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtReportStudentCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 42, Short.MAX_VALUE))
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtReportStudentCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Intake/Program Distribution Report", jPanel8);
 
-        tblSupervisorWorkloadReport1.setModel(new javax.swing.table.DefaultTableModel(
+        tblTimeslotUtilizationReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Jack", "34", "3", "3", "76%"},
                 {"Bob", "29", "0", "0", "21%"},
@@ -824,20 +780,24 @@ public class FacultyAdminView extends javax.swing.JPanel {
                 "Supervisor Name", "Total Timeslots Created", "Number of Booked Timeslots", "Number of Free Timeslots", "Timeslot Utilization"
             }
         ));
-        jScrollPane9.setViewportView(tblSupervisorWorkloadReport1);
+        tblTimeslotUtilizationReport.setEnabled(false);
+        jScrollPane9.setViewportView(tblTimeslotUtilizationReport);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Timeslot Utilization Report", jPanel9);
@@ -864,32 +824,32 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel20.setText("Exit Your Account");
 
-        jLabel21.setText("Leave your accout and sign back in later continue");
+        jLabel21.setText("Leave your account and sign back in later continue.");
 
-        jButton1.setText("Sign Out");
+        btnSignOut.setText("Sign Out");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(345, Short.MAX_VALUE)
+                .addContainerGap(361, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1)
+                    .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel20))
-                .addGap(334, 334, 334))
+                .addGap(350, 350, 350))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(233, 233, 233)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(265, 265, 265))
+                .addGap(18, 18, 18)
+                .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Account", jPanel6);
@@ -944,6 +904,18 @@ public class FacultyAdminView extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnQuickReportsActionPerformed
 
+    public javax.swing.JLabel getTxtUsername() {
+        return this.txtUsername;
+    }
+
+    public javax.swing.JLabel getTxtDate() {
+        return this.txtDate;
+    }
+
+    public javax.swing.JLabel getTxtTime() {
+        return this.txtTime;
+    }
+
     public javax.swing.JTextField getTxtTotalStudents() {
         return this.txtTotalStudents;
     }
@@ -954,6 +926,10 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
     public javax.swing.JTextField getTxtUnassignedStudents() {
         return this.txtUnassignedStudents;
+    }
+
+    public javax.swing.JTextField getTxtReportStudentCount() {
+        return this.txtReportStudentCount;
     }
 
     public javax.swing.JTable getTblStudents() {
@@ -978,6 +954,30 @@ public class FacultyAdminView extends javax.swing.JPanel {
 
     public javax.swing.JTable getTblAssignmentSupervisors() {
         return this.tblAssignmentSupervisors;
+    }
+
+    public javax.swing.JTable getTblSupervisorWorkloadReport() {
+        return this.tblSupervisorWorkloadReport;
+    }
+
+    public javax.swing.JTable getTblReportStudentByIntake() {
+        return this.tblReportStudentByIntake;
+    }
+
+    public javax.swing.JTable getTblReportStudentsByProgram() {
+        return this.tblReportStudentsByProgram;
+    }
+
+    public javax.swing.JTable getTblReportJanIntakePrograms() {
+        return this.tblReportProgramCountsByIntake;
+    }
+
+    public javax.swing.JTable getTblReportProgramCountsByIntake() {
+        return this.tblReportProgramCountsByIntake;
+    }
+
+    public javax.swing.JTable getTblTimeslotUtilizationReport() {
+        return this.tblTimeslotUtilizationReport;
     }
 
     public javax.swing.JComboBox getComboIntakeFilter() {
@@ -1012,6 +1012,11 @@ public class FacultyAdminView extends javax.swing.JPanel {
         return this.btnUnassignSupervisor;
     }
 
+    public javax.swing.JButton getBtnSignOut() {
+        return this.btnSignOut;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignSupervisor;
     private javax.swing.JButton btnQuickAssignments;
@@ -1019,11 +1024,11 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnQuickStudents;
     private javax.swing.JButton btnQuickSupervisors;
     private javax.swing.JButton btnResetSearchFilters;
+    private javax.swing.JButton btnSignOut;
     private javax.swing.JButton btnUnassignSupervisor;
     private javax.swing.JComboBox<String> comboIntakeFilter;
     private javax.swing.JComboBox<String> comboProgramFilter;
     private javax.swing.JComboBox<String> comboStudentFilter;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1032,12 +1037,11 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1059,8 +1063,6 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1075,17 +1077,15 @@ public class FacultyAdminView extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tblAssignmentStudents;
     private javax.swing.JTable tblAssignmentSupervisors;
-    private javax.swing.JTable tblReortSepIntakePrograms;
-    private javax.swing.JTable tblReportJanInakePrograms;
-    private javax.swing.JTable tblReportMayIntakePrograms;
+    private javax.swing.JTable tblReportProgramCountsByIntake;
     private javax.swing.JTable tblReportStudentByIntake;
-    private javax.swing.JTable tblReportStudentsByPRogram;
+    private javax.swing.JTable tblReportStudentsByProgram;
     private javax.swing.JTable tblStudents;
     private javax.swing.JTable tblSupervisorStudents;
     private javax.swing.JTable tblSupervisorTimeslots;
     private javax.swing.JTable tblSupervisorWorkloadReport;
-    private javax.swing.JTable tblSupervisorWorkloadReport1;
     private javax.swing.JTable tblSupervisors;
+    private javax.swing.JTable tblTimeslotUtilizationReport;
     private javax.swing.JLabel txt;
     private javax.swing.JLabel txtDate;
     private javax.swing.JLabel txtGreeting;

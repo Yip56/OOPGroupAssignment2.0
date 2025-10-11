@@ -103,7 +103,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnQuickSupervisors" pref="318" max="32767" attributes="0"/>
+                                  <Component id="btnQuickSupervisors" pref="361" max="32767" attributes="0"/>
                                   <Component id="btnQuickReports" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -388,16 +388,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="comboIntakeFilter" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboIntakeFilter" min="-2" pref="189" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboProgramFilter" min="-2" pref="169" max="-2" attributes="0"/>
+                                  <Component id="comboProgramFilter" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -412,7 +412,7 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="btnResetSearchFilters" alignment="0" pref="342" max="32767" attributes="0"/>
+                                  <Component id="btnResetSearchFilters" alignment="0" pref="385" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -425,7 +425,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="txtTitle" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -449,10 +452,7 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -701,7 +701,7 @@
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane5" alignment="1" pref="600" max="32767" attributes="0"/>
+                          <Component id="jScrollPane5" alignment="1" pref="643" max="32767" attributes="0"/>
                           <Component id="jScrollPane4" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
@@ -964,26 +964,24 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="comboStudentFilter" alignment="1" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="txt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="txt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="606" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane6" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="563" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane6" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnUnassignSupervisor" min="-2" pref="334" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" min="-2" pref="334" max="-2" attributes="0"/>
-                                      <Component id="btnAssignSupervisor" alignment="0" min="-2" pref="334" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnUnassignSupervisor" min="-2" pref="334" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane7" min="-2" pref="334" max="-2" attributes="0"/>
+                                  <Component id="btnAssignSupervisor" alignment="0" min="-2" pref="334" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1277,15 +1275,15 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane8" alignment="0" pref="957" max="32767" attributes="0"/>
+                          <Component id="jScrollPane8" alignment="0" pref="1000" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" pref="497" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane8" min="-2" pref="496" max="-2" attributes="0"/>
+                              <EmptySpace pref="47" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1413,6 +1411,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1434,76 +1433,60 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel13" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane10" alignment="0" pref="317" max="32767" attributes="0"/>
-                                      <Component id="txtReportStudentCount" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel13" min="-2" pref="96" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane12" alignment="0" min="-2" pref="305" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane11" alignment="0" pref="634" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jScrollPane14" min="-2" pref="305" max="-2" attributes="0"/>
-                                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane13" min="-2" pref="305" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jScrollPane10" alignment="0" pref="317" max="32767" attributes="0"/>
+                                          <Component id="txtReportStudentCount" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane11" pref="677" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel22" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                              <Component id="jLabel18" min="-2" pref="145" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
-                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel19" min="-2" pref="133" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel18" min="-2" pref="184" max="-2" attributes="0"/>
+                              <EmptySpace min="83" pref="816" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jScrollPane12" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane14" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtReportStudentCount" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jScrollPane11" pref="53" max="32767" attributes="0"/>
-                                          <Component id="jScrollPane10" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane12" min="-2" pref="150" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane13" min="-2" pref="150" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
+                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtReportStudentCount" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane11" pref="53" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane10" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane12" min="-2" pref="186" max="-2" attributes="0"/>
+                              <EmptySpace pref="36" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1520,6 +1503,7 @@
                     <Component class="javax.swing.JTextField" name="txtReportStudentCount">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="1156"/>
+                        <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
@@ -1571,6 +1555,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1585,7 +1570,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="tblReportStudentsByPRogram">
+                        <Component class="javax.swing.JTable" name="tblReportStudentsByProgram">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="1">
@@ -1627,6 +1612,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1641,7 +1627,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="tblReportJanInakePrograms">
+                        <Component class="javax.swing.JTable" name="tblReportProgramCountsByIntake">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="2" rowCount="4">
@@ -1673,6 +1659,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1680,120 +1667,20 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane13">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTable" name="tblReortSepIntakePrograms">
-                          <Properties>
-                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="2" rowCount="4">
-                                <Column editable="true" title="Course" type="java.lang.Object">
-                                  <Data value="Computer Science"/>
-                                  <Data value="Data Science"/>
-                                  <Data value="Software Engineering"/>
-                                  <Data value="Computer Technology"/>
-                                </Column>
-                                <Column editable="true" title="Number" type="java.lang.Object">
-                                  <Data value="132"/>
-                                  <Data value="56"/>
-                                  <Data value="243"/>
-                                  <Data value="321"/>
-                                </Column>
-                              </Table>
-                            </Property>
-                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                              <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                              </TableColumnModel>
-                            </Property>
-                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane14">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTable" name="tblReportMayIntakePrograms">
-                          <Properties>
-                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="2" rowCount="4">
-                                <Column editable="true" title="Course" type="java.lang.Object">
-                                  <Data value="Computer Science"/>
-                                  <Data value="Data Science"/>
-                                  <Data value="Software Engineering"/>
-                                  <Data value="Computer Technology"/>
-                                </Column>
-                                <Column editable="true" title="Number" type="java.lang.Object">
-                                  <Data value="132"/>
-                                  <Data value="56"/>
-                                  <Data value="243"/>
-                                  <Data value="321"/>
-                                </Column>
-                              </Table>
-                            </Property>
-                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                              <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                              </TableColumnModel>
-                            </Property>
-                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JLabel" name="jLabel17">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Helvetica Neue" size="13" style="1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="May Intake:"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Helvetica Neue" size="13" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="January Intake:"/>
+                        <Property name="text" type="java.lang.String" value="Program Counts By Intake:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel19">
+                    <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Helvetica Neue" size="13" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="September Intake:"/>
+                        <Property name="text" type="java.lang.String" value="Student Count By Program:"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1810,15 +1697,19 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane9" alignment="0" pref="957" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane9" pref="988" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" pref="497" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane9" min="-2" pref="499" max="-2" attributes="0"/>
+                              <EmptySpace pref="44" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1831,7 +1722,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="tblSupervisorWorkloadReport1">
+                        <Component class="javax.swing.JTable" name="tblTimeslotUtilizationReport">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="14">
@@ -1946,6 +1837,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -1972,26 +1864,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="345" max="32767" attributes="0"/>
+                      <EmptySpace pref="361" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSignOut" alignment="2" min="-2" pref="121" max="-2" attributes="0"/>
                           <Component id="jLabel21" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel20" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="232" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel21" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSignOut" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace pref="242" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2007,10 +1899,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Leave your accout and sign back in later continue"/>
+                <Property name="text" type="java.lang.String" value="Leave your account and sign back in later continue."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnSignOut">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sign Out"/>
               </Properties>

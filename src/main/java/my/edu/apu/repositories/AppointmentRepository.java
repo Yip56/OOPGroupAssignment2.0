@@ -40,7 +40,7 @@ public class AppointmentRepository implements IRepository<Appointment> {
         }
         return result;
     }
-    
+
     public List<Appointment> findBySupervisorId(String supervisorId) {
         List<Appointment> result = new ArrayList<>();
         for (Appointment a : appointments) {
@@ -62,19 +62,17 @@ public class AppointmentRepository implements IRepository<Appointment> {
         appointments.removeIf(app -> app.getId().equals(id));
         save();
     }
-    
-    
-    public void update(Appointment updatedAppointment){
-        for(int i = 0; i < appointments.size(); i++){
+
+    public void update(Appointment updatedAppointment) {
+        for (int i = 0; i < appointments.size(); i++) {
             Appointment current = appointments.get(i);
-            if(current.getId().equals(updatedAppointment.getId())){
+            if (current.getId().equals(updatedAppointment.getId())) {
                 appointments.set(i, updatedAppointment);
                 save();
                 return;
             }
         }
         throw new NoSuchElementException("Appointment with ID" + updatedAppointment.getId() + " not found");
-        
     }
 
     @Override

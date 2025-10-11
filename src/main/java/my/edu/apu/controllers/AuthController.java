@@ -106,7 +106,7 @@ public class AuthController {
                 }
                 case Role.FACULTY_ADMIN -> {
                     FacultyAdminView facultyAdminView = new FacultyAdminView();
-                    new FacultyAdminController(facultyAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
+                    new FacultyAdminController(facultyAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, user.getId());
                     mainFrame.setContentPane(facultyAdminView);
                 }
                 case Role.SYSTEM_ADMIN -> {
