@@ -25,6 +25,8 @@ public interface IUser {
 
     // Setters
     void setName(String name);
+    
+    void setUniEmail(String uniEmail);
 
     void setPassword(String password);
 

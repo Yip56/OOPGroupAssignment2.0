@@ -59,6 +59,11 @@ public abstract class AbstractUser implements IUser {
     }
 
     @Override
+    public void setUniEmail(String uniEmail) {
+        this.uniEmail = uniEmail;
+    }
+
+    @Override
     public String getPassword() {
         return password;
     }
