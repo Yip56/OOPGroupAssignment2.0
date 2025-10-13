@@ -605,6 +605,10 @@ public class SupervisorView extends javax.swing.JPanel {
         return this.tblAppointmentRequests;
     }
     
+    public javax.swing.JTable getTblStudents() {
+        return this.tblStudents;
+    }
+    
     public javax.swing.JButton getBtnApproveAppointments() {
         return this.btnApproveAppointments;
     }

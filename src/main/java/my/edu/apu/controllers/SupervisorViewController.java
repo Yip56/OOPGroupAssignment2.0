@@ -30,6 +30,7 @@ import my.edu.apu.models.Feedback;
 import my.edu.apu.utils.AppNavigator;
 import my.edu.apu.views.panels.SupervisorView;
 import my.edu.apu.repositories.AppointmentRepository;
+import my.edu.apu.repositories.StudentRepository;
 
 /**
  *
@@ -37,6 +38,7 @@ import my.edu.apu.repositories.AppointmentRepository;
  */
 public class SupervisorViewController {
 
+    private String studentId;
     private final String supervisorId;
     private final SupervisorView supervisorView;
     private final AppNavigator navigator;
@@ -48,6 +50,7 @@ public class SupervisorViewController {
     private DefaultTableModel appointmentModel;
     private DefaultTableModel timeslotModel;
     private DefaultTableModel feedbackModel;
+    private DefaultTableModel studentModel;
 
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy");
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -71,7 +74,36 @@ public class SupervisorViewController {
         initializeAppointments();
         loadAppointments();
         manageAppointmentRequests();
+        loadStudents();
 
+    }
+    private void loadStudents(){
+        List<Student> students = studentRepo.findAll();
+                
+        studentModel.setRowCount(0);
+        
+        for (Student student : students){   
+            List<Appointment> appointments = appointmentRepo.findBySupervisorId(supervisorId);
+            
+            String studentName = student.getName();
+            String intake = student.getIntake().toString();
+            String program = student.getProgram().toString();
+            int numberOfAppointments = 0;
+
+            for (Appointment appt : appointments) {
+                String apptStudentName = studentRepo.findById(appt.getStudentId())
+                    .map(stu -> stu.getName())
+                    .orElse("Unknown Student");
+                if(apptStudentName.equals(studentName)){
+                    numberOfAppointments++;   
+                }
+            }
+            if(numberOfAppointments != 0){
+                studentModel.addRow(new Object[]{studentName, intake, program, numberOfAppointments}); 
+            }
+
+        }
+        
     }
 
     private void loadAppointments() {
@@ -106,6 +138,18 @@ public class SupervisorViewController {
                 return false;
             }
         };
+        
+        String[] studentColumns = {"Student Name", "Intake", "Program", "Number of Appointments"};
+        this.studentModel = new DefaultTableModel(studentColumns, 0){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        JTable studentTable = supervisorView.getTblStudents();
+        studentTable.setModel(studentModel);
+        
 
         JTable appointmentWidgetTable = supervisorView.getTblAppointmentsWidget();
         appointmentWidgetTable.setModel(appointmentWidgetModel);
