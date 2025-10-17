@@ -44,6 +44,8 @@ public class SystemAdminView extends javax.swing.JPanel {
         btnQuickManageFacAdmins = new javax.swing.JButton();
         btnQuickManageSupervisors = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        btnQuickMonitorFailedLogins = new javax.swing.JButton();
+        btnQuickAccount = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
@@ -111,6 +113,9 @@ public class SystemAdminView extends javax.swing.JPanel {
         btnDeleteFacultyAdmin = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         txtFacultyAdminPassword = new javax.swing.JPasswordField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -183,6 +188,20 @@ public class SystemAdminView extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel8.setText("Quick Actions:");
 
+        btnQuickMonitorFailedLogins.setText("Monitor Failed Login Attempts");
+        btnQuickMonitorFailedLogins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuickMonitorFailedLoginsActionPerformed(evt);
+            }
+        });
+
+        btnQuickAccount.setText("Account");
+        btnQuickAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuickAccountActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -210,17 +229,20 @@ public class SystemAdminView extends javax.swing.JPanel {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnQuickManageStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnQuickManageSupervisors, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnQuickManageFacAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnQuickManageStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnQuickMonitorFailedLogins, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnQuickAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -256,14 +278,18 @@ public class SystemAdminView extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTotalFacultyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnQuickManageStudents, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                    .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnQuickUserManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                                    .addComponent(btnQuickManageStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnQuickManageSupervisors, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnQuickManageFacAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 137, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnQuickManageSupervisors, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(btnQuickManageFacAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnQuickMonitorFailedLogins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnQuickAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -746,6 +772,34 @@ public class SystemAdminView extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Manage Users", jPanel2);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Monitor Failed Login Attempts", jPanel3);
+
         jLabel21.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel21.setText("Exit Your Account");
 
@@ -853,6 +907,14 @@ public class SystemAdminView extends javax.swing.JPanel {
     private void txtTotalStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalStudentsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalStudentsActionPerformed
+
+    private void btnQuickMonitorFailedLoginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickMonitorFailedLoginsActionPerformed
+        this.jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_btnQuickMonitorFailedLoginsActionPerformed
+
+    private void btnQuickAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuickAccountActionPerformed
+        this.jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_btnQuickAccountActionPerformed
 
     public javax.swing.JTextField getTxtTotalStudents() {
         return this.txtTotalStudents;
@@ -1006,6 +1068,14 @@ public class SystemAdminView extends javax.swing.JPanel {
         return this.comboProgram;
     }
 
+    public javax.swing.JComboBox getComboAccStatusSearch() {
+        return this.comboAccStatusSearch;
+    }
+
+    public javax.swing.JComboBox getComboUserAccStatus() {
+        return this.comboUserAccStatus;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateFacultyAdmin;
     private javax.swing.JButton btnCreateStudent;
@@ -1014,9 +1084,11 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JButton btnDeleteStudent;
     private javax.swing.JButton btnDeleteSupervisor;
     private javax.swing.JButton btnDeleteUser;
+    private javax.swing.JButton btnQuickAccount;
     private javax.swing.JButton btnQuickManageFacAdmins;
     private javax.swing.JButton btnQuickManageStudents;
     private javax.swing.JButton btnQuickManageSupervisors;
+    private javax.swing.JButton btnQuickMonitorFailedLogins;
     private javax.swing.JButton btnQuickUserManagement;
     private javax.swing.JButton btnResetSearch;
     private javax.swing.JButton btnSignOut;
@@ -1052,6 +1124,7 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -1061,10 +1134,12 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable tblFacultyAdminAccounts;
     private javax.swing.JTable tblStudentAccounts;
     private javax.swing.JTable tblSupervisorAccounts;

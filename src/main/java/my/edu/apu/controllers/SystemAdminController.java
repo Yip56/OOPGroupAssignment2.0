@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JOptionPane;
@@ -46,7 +45,7 @@ public class SystemAdminController {
 
     // Set up date formatters
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy"); // e.g. 05/10/25
-    private final DateTimeFormatter secondaryDateFormatter = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+    private final DateTimeFormatter dobDateFormatter = DateTimeFormatter.ofPattern("uuuu/MM/dd");
     private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");    // e.g. 14:30
 
     // Table models
@@ -129,7 +128,7 @@ public class SystemAdminController {
 
     private void initializeUsers() {
         // Create user account model
-        String[] userAccountModelColumns = {"ID", "Name", "Email", "Role"};
+        String[] userAccountModelColumns = {"ID", "Name", "Email", "Role", "Account Status"};
         userAccountModel = new DefaultTableModel(userAccountModelColumns, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -148,16 +147,54 @@ public class SystemAdminController {
     }
 
     private void loadUsers() {
-        // Empty model
+        // Clear the table model
         userAccountModel.setRowCount(0);
 
-        // Fill up table model with data
+        // Get filter inputs
+        String nameFilter = systemAdminView.getTxtUsernameSearch().getText().trim().toLowerCase();
+        String emailFilter = systemAdminView.getTxtEmailSearch().getText().trim().toLowerCase();
+        String accStatusFilter = String.valueOf(systemAdminView.getComboAccStatusSearch().getSelectedItem());
+
+        // Get all users
         List<User> users = userRepo.findAll();
+        List<User> filteredUsers = new ArrayList<>();
+
         for (User u : users) {
+            // Skip system admins
             if (u.getRole().equals(Role.SYSTEM_ADMIN)) {
                 continue;
             }
-            userAccountModel.addRow(new Object[]{u.getId(), u.getName(), u.getUniEmail(), u.getRole().toString()});
+
+            // --- Apply filters ---
+            boolean matchesName = nameFilter.isEmpty() || u.getName().toLowerCase().contains(nameFilter);
+            boolean matchesEmail = emailFilter.isEmpty() || u.getUniEmail().toLowerCase().contains(emailFilter);
+            boolean matchesStatus;
+
+            switch (accStatusFilter) {
+                case "Enabled" ->
+                    matchesStatus = u.getAccountStatus();
+                case "Disabled" ->
+                    matchesStatus = !u.getAccountStatus();
+                default ->
+                    matchesStatus = true; // "All" or any unexpected value
+            };
+
+            // Only include users matching all criteria
+            if (matchesName && matchesEmail && matchesStatus) {
+                filteredUsers.add(u);
+            }
+        }
+
+        // Populate the table model
+        for (User u : filteredUsers) {
+            String accStatus = u.getAccountStatus() ? "Enabled" : "Disabled";
+            userAccountModel.addRow(new Object[]{
+                u.getId(),
+                u.getName(),
+                u.getUniEmail(),
+                u.getRole().toString(),
+                accStatus
+            });
         }
     }
 
@@ -418,7 +455,7 @@ public class SystemAdminController {
         systemAdminView.getTxtStudentName().setText(student.getName());
         systemAdminView.getTxtStudentEmail().setText(student.getUniEmail());
         systemAdminView.getTxtStudentPassword().setText(student.getPassword());
-        systemAdminView.getTxtStudentDob().setText(student.getDob().format(secondaryDateFormatter));
+        systemAdminView.getTxtStudentDob().setText(student.getDob().format(dobDateFormatter));
         systemAdminView.getComboIntake().setSelectedIndex(intakeIndex);
         systemAdminView.getComboProgram().setSelectedIndex(programIndex);
     }
@@ -764,6 +801,7 @@ public class SystemAdminController {
         systemAdminView.getBtnDeleteUser().setEnabled(false);
 
         systemAdminView.getTblUserAccounts().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 prefillUserAccountDetails();
                 systemAdminView.getBtnUpdateUserDetails().setEnabled(true);
@@ -774,17 +812,18 @@ public class SystemAdminController {
         systemAdminView.getTxtUsernameSearch().addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyReleased(java.awt.event.KeyEvent e) {
-                searchByName();
+                loadUsers();
             }
         });
 
         systemAdminView.getTxtEmailSearch().addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyReleased(java.awt.event.KeyEvent e) {
-                searchByEmail();
+                loadUsers();
             }
         });
 
+        systemAdminView.getComboAccStatusSearch().addActionListener(e -> loadUsers());
         systemAdminView.getBtnUpdateUserDetails().addActionListener(e -> updateUserDetails());
         systemAdminView.getBtnDeleteUser().addActionListener(e -> deleteUserAccount());
         systemAdminView.getBtnResetSearch().addActionListener(e -> resetSearch());
@@ -799,6 +838,13 @@ public class SystemAdminController {
         User u = userRepo.findById(userId).get();
         systemAdminView.getTxtName().setText(u.getName());
         systemAdminView.getTxtUserEmail().setText(u.getUniEmail());
+
+        // Update account status field
+        if (u.getAccountStatus()) {
+            systemAdminView.getComboUserAccStatus().setSelectedIndex(1);
+        } else {
+            systemAdminView.getComboUserAccStatus().setSelectedIndex(2);
+        }
     }
 
     private void resetUserAccountDetails() {
@@ -807,9 +853,16 @@ public class SystemAdminController {
         systemAdminView.getTxtUserEmail().setText("");
         systemAdminView.getBtnUpdateUserDetails().setEnabled(false);
         systemAdminView.getBtnDeleteUser().setEnabled(false);
+        systemAdminView.getComboUserAccStatus().setSelectedIndex(0);
     }
 
     private void deleteUserAccount() {
+        // Ensure the system admin wishes to delete this user
+        int confirmation = JOptionPane.showConfirmDialog(systemAdminView, "Are you sure you want to delete this user?", "Confirm User Deletion", JOptionPane.WARNING_MESSAGE);
+        if (confirmation != JOptionPane.OK_OPTION) {
+            return;
+        }
+
         // Get the selected row from the model
         int row = systemAdminView.getTblUserAccounts().getSelectedRow();
         String userId = String.valueOf(userAccountModel.getValueAt(row, 0));
@@ -826,8 +879,11 @@ public class SystemAdminController {
                 supervisorRepo.remove(userId);
         }
 
-        // Update table model with new user list
+        // Update ALL user models
         loadUsers();
+        loadStudents();
+        loadSupervisors();
+        loadFacultyAdmins();
 
         // Reset text fields and buttons
         resetUserAccountDetails();
@@ -838,20 +894,64 @@ public class SystemAdminController {
         int row = systemAdminView.getTblUserAccounts().getSelectedRow();
         String userId = String.valueOf(userAccountModel.getValueAt(row, 0));
 
+        // Get the user
+        User user = userRepo.findById(userId).get();
+
+        // Get new name and email
         String updatedName = systemAdminView.getTxtName().getText();
         String updatedEmail = systemAdminView.getTxtUserEmail().getText();
 
-        User currentUser = userRepo.findById(userId).get();
+        // Get updated account status
+        String accStatusChoice = String.valueOf(systemAdminView.getComboUserAccStatus().getSelectedItem());
+        boolean updatedAccStatus;
+
+        // Handle all cases of combo box
+        switch (accStatusChoice) {
+            case "Enabled" ->
+                updatedAccStatus = true;
+
+            case "Disabled" -> {
+                if (user.getAccountStatus()) {
+                    String msg = """
+                Are you sure you want to disable this user's account?
+                They will no longer be able to access it until re-enabled.
+                """;
+                    int confirmation = JOptionPane.showConfirmDialog(
+                            systemAdminView,
+                            msg,
+                            "Confirm Account Disabling",
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.WARNING_MESSAGE
+                    );
+                    if (confirmation != JOptionPane.OK_OPTION) {
+                        return;
+                    }
+                }
+                updatedAccStatus = false;
+            }
+
+            default -> {
+                JOptionPane.showMessageDialog(
+                        systemAdminView,
+                        "Please select a valid account status.",
+                        "Error Updating User Details",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+        }
 
         // If the updated email is not equal to the same existing email and a user with the same email is found
-        if (!updatedEmail.equalsIgnoreCase(currentUser.getUniEmail()) && userRepo.findByUniEmail(updatedEmail).isPresent()) {
-            JOptionPane.showMessageDialog(systemAdminView, "Please choose a unique email.");
+        if (!updatedEmail.equalsIgnoreCase(user.getUniEmail()) && userRepo.findByUniEmail(updatedEmail).isPresent()) {
+            JOptionPane.showMessageDialog(systemAdminView, "Please choose a unique email.", "Error Updating User", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Update user details
-        User updatedUser = new User(updatedName, updatedEmail, currentUser.getPassword(), currentUser.getRole(), userId, currentUser.getAccountStatus());
-        userRepo.update(updatedUser);
+        // Update user details and save
+        user.setName(updatedName);
+        user.setUniEmail(updatedEmail);
+        user.setAccountStatus(updatedAccStatus);
+        userRepo.save();
 
         // Update ALL user models
         loadUsers();
@@ -863,53 +963,10 @@ public class SystemAdminController {
         resetUserAccountDetails();
     }
 
-    private void searchByName() {
-        // Filter users by name
-        List<User> users = userRepo.findAll();
-        String name = systemAdminView.getTxtUsernameSearch().getText();
-        List<User> filteredUsers = new ArrayList<>();
-
-        for (User u : users) {
-            if (u.getRole().equals(Role.SYSTEM_ADMIN)) {
-                continue;
-            }
-            if (u.getName().toLowerCase().contains(name.toLowerCase())) {
-                filteredUsers.add(u);
-            }
-        }
-
-        // Update table model
-        userAccountModel.setRowCount(0);
-        for (User u : filteredUsers) {
-            userAccountModel.addRow(new Object[]{u.getId(), u.getName(), u.getUniEmail(), u.getRole().toString()});
-        }
-    }
-
-    private void searchByEmail() {
-        // Filter users by email
-        List<User> users = userRepo.findAll();
-        String email = systemAdminView.getTxtEmailSearch().getText();
-        List<User> filteredUsers = new ArrayList<>();
-
-        for (User u : users) {
-            if (u.getRole().equals(Role.SYSTEM_ADMIN)) {
-                continue;
-            }
-            if (u.getUniEmail().toLowerCase().contains(email.toLowerCase())) {
-                filteredUsers.add(u);
-            }
-        }
-
-        // Update table model
-        userAccountModel.setRowCount(0);
-        for (User u : filteredUsers) {
-            userAccountModel.addRow(new Object[]{u.getId(), u.getName(), u.getUniEmail(), u.getRole().toString()});
-        }
-    }
-
     private void resetSearch() {
         systemAdminView.getTxtEmailSearch().setText("");
         systemAdminView.getTxtUsernameSearch().setText("");
+        systemAdminView.getComboAccStatusSearch().setSelectedIndex(0);
         loadUsers();
     }
 }
