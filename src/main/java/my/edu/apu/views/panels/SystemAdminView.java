@@ -77,6 +77,10 @@ public class SystemAdminView extends javax.swing.JPanel {
         btnUpdateStudent = new javax.swing.JButton();
         btnCreateStudent = new javax.swing.JButton();
         btnDeleteStudent = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        txtStudentPassword = new javax.swing.JPasswordField();
+        jLabel29 = new javax.swing.JLabel();
+        txtStudentDob = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -88,6 +92,8 @@ public class SystemAdminView extends javax.swing.JPanel {
         btnCreateSupervisor = new javax.swing.JButton();
         btnUpdateSupervisor = new javax.swing.JButton();
         btnDeleteSupervisor = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        txtSupervisorPassword = new javax.swing.JPasswordField();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblFacultyAdminAccounts = new javax.swing.JTable();
@@ -99,6 +105,8 @@ public class SystemAdminView extends javax.swing.JPanel {
         btnCreateFacultyAdmin = new javax.swing.JButton();
         btnUpdateFacultyAdmin = new javax.swing.JButton();
         btnDeleteFacultyAdmin = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        txtFacultyAdminPassword = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblFailedLoginAttempts = new javax.swing.JTable();
@@ -330,18 +338,18 @@ public class SystemAdminView extends javax.swing.JPanel {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnUpdateUserDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(txtUsername2)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtEmailSearch)
-                            .addComponent(txtUsername3)
                             .addComponent(btnResetSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator2)
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtUserEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtUsername4)
-                                .addComponent(txtUsername5)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUsername2)
+                                    .addComponent(txtUsername3)
+                                    .addComponent(txtUsername4)
+                                    .addComponent(txtUsername5))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
@@ -418,13 +426,19 @@ public class SystemAdminView extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setText("Program:");
 
-        comboProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science", "Data Science", "Software Engineering", "Information Technology", " " }));
+        comboProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Science", "Data Science", "Software Engineering", "Information Technology" }));
 
         btnUpdateStudent.setText("Update Student");
 
         btnCreateStudent.setText("Add Student");
 
         btnDeleteStudent.setText("Delete Student");
+
+        jLabel23.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel23.setText("Password:");
+
+        jLabel29.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel29.setText("DOB:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -438,21 +452,30 @@ public class SystemAdminView extends javax.swing.JPanel {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtStudentName)
                     .addComponent(txtStudentEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                    .addComponent(btnUpdateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCreateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDeleteStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtStudentPassword)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9)
-                            .addComponent(comboIntake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(comboIntake, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(124, 124, 124))
                             .addComponent(comboProgram, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btnUpdateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDeleteStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel29))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtStudentDob, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,7 +493,15 @@ public class SystemAdminView extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtStudentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStudentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStudentDob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
@@ -530,6 +561,9 @@ public class SystemAdminView extends javax.swing.JPanel {
 
         btnDeleteSupervisor.setText("Delete Supervisor");
 
+        jLabel24.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel24.setText("Password:");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -548,8 +582,10 @@ public class SystemAdminView extends javax.swing.JPanel {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addContainerGap())))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel24))
+                        .addContainerGap())
+                    .addComponent(txtSupervisorPassword)))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,6 +603,10 @@ public class SystemAdminView extends javax.swing.JPanel {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSupervisorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSupervisorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCreateSupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -619,6 +659,9 @@ public class SystemAdminView extends javax.swing.JPanel {
 
         btnDeleteFacultyAdmin.setText("Delete Faculty Admin");
 
+        jLabel25.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel25.setText("Password:");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -629,19 +672,21 @@ public class SystemAdminView extends javax.swing.JPanel {
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFacultyAdminEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
+                    .addComponent(btnUpdateFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                    .addComponent(btnCreateFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFacultyAdminName)
+                    .addComponent(btnDeleteFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtFacultyAdminEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnUpdateFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtFacultyAdminName))
-                        .addGap(0, 0, 0))
-                    .addComponent(btnDeleteFacultyAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(txtFacultyAdminPassword, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, 0))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,6 +705,10 @@ public class SystemAdminView extends javax.swing.JPanel {
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFacultyAdminEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFacultyAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCreateFacultyAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -925,46 +974,134 @@ public class SystemAdminView extends javax.swing.JPanel {
     public javax.swing.JLabel getTxtTime() {
         return this.txtTime;
     }
-    
+
     public javax.swing.JTable getTblUserAccounts() {
         return this.tblUserAccounts;
     }
-    
+
+    public javax.swing.JTable getTblSupervisorAccounts() {
+        return this.tblSupervisorAccounts;
+    }
+
     public javax.swing.JButton getBtnUpdateUserDetails() {
         return this.btnUpdateUserDetails;
     }
-    
+
     public javax.swing.JButton getBtnDeleteUser() {
         return this.btnDeleteUser;
     }
-    
-    public javax.swing.JTextField getTxtName(){
+
+    public javax.swing.JTextField getTxtName() {
         return this.txtName;
     }
-    
-    public javax.swing.JTextField getTxtUserEmail(){
+
+    public javax.swing.JTextField getTxtUserEmail() {
         return this.txtUserEmail;
     }
-    
-    public javax.swing.JTextField getTxtUsernameSearch(){
+
+    public javax.swing.JTextField getTxtUsernameSearch() {
         return this.txtUsernameSearch;
     }
-    
-    public javax.swing.JTextField getTxtEmailSearch(){
+
+    public javax.swing.JTextField getTxtEmailSearch() {
         return this.txtEmailSearch;
     }
-    
-    public javax.swing.JButton getBtnResetSearch(){
+
+    public javax.swing.JTextField getTxtStudentName() {
+        return this.txtStudentName;
+    }
+
+    public javax.swing.JTextField getTxtStudentEmail() {
+        return this.txtStudentEmail;
+    }
+
+    public javax.swing.JTextField getTxtStudentDob() {
+        return this.txtStudentDob;
+    }
+
+    public javax.swing.JTextField getTxtSupervisorName() {
+        return this.txtSupervisorName;
+    }
+
+    public javax.swing.JTextField getTxtSupervisorEmail() {
+        return this.txtSupervisorEmail;
+    }
+
+    public javax.swing.JTextField getTxtFacultyAdminName() {
+        return this.txtFacultyAdminName;
+    }
+
+    public javax.swing.JTextField getTxtFacultyAdminEmail() {
+        return this.txtFacultyAdminEmail;
+    }
+
+    public javax.swing.JPasswordField getTxtFacultyAdminPassword() {
+        return this.txtFacultyAdminPassword;
+    }
+
+    public javax.swing.JPasswordField getTxtSupervisorPassword() {
+        return this.txtSupervisorPassword;
+    }
+
+    public javax.swing.JPasswordField getTxtStudentPassword() {
+        return this.txtStudentPassword;
+    }
+
+    public javax.swing.JButton getBtnResetSearch() {
         return this.btnResetSearch;
     }
-    
-    public javax.swing.JTable getTblStudentAccounts(){
+
+    public javax.swing.JButton getBtnCreateFacultyAdmin() {
+        return this.btnCreateFacultyAdmin;
+    }
+
+    public javax.swing.JButton getBtnUpdateFacultyAdmin() {
+        return this.btnUpdateFacultyAdmin;
+    }
+
+    public javax.swing.JButton getBtnDeleteFacultyAdmin() {
+        return this.btnDeleteFacultyAdmin;
+    }
+
+    public javax.swing.JButton getBtnDeleteStudent() {
+        return this.btnDeleteStudent;
+    }
+
+    public javax.swing.JButton getBtnUpdateStudent() {
+        return this.btnUpdateStudent;
+    }
+
+    public javax.swing.JButton getBtnCreateStudent() {
+        return this.btnCreateStudent;
+    }
+
+    public javax.swing.JButton getBtnCreateSupervisor() {
+        return this.btnCreateSupervisor;
+    }
+
+    public javax.swing.JButton getBtnUpdateSupervisor() {
+        return this.btnUpdateSupervisor;
+    }
+
+    public javax.swing.JButton getBtnDeleteSupervisor() {
+        return this.btnDeleteSupervisor;
+    }
+
+    public javax.swing.JTable getTblStudentAccounts() {
         return this.tblStudentAccounts;
     }
-    
 
-    
-    
+    public javax.swing.JTable getTblFacultyAdminAccounts() {
+        return this.tblFacultyAdminAccounts;
+    }
+
+    public javax.swing.JComboBox getComboIntake() {
+        return this.comboIntake;
+    }
+
+    public javax.swing.JComboBox getComboProgram() {
+        return this.comboProgram;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateFacultyAdmin;
@@ -1002,6 +1139,10 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1040,11 +1181,15 @@ public class SystemAdminView extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmailSearch;
     private javax.swing.JTextField txtFacultyAdminEmail;
     private javax.swing.JTextField txtFacultyAdminName;
+    private javax.swing.JPasswordField txtFacultyAdminPassword;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtStudentDob;
     private javax.swing.JTextField txtStudentEmail;
     private javax.swing.JTextField txtStudentName;
+    private javax.swing.JPasswordField txtStudentPassword;
     private javax.swing.JTextField txtSupervisorEmail;
     private javax.swing.JTextField txtSupervisorName;
+    private javax.swing.JPasswordField txtSupervisorPassword;
     private javax.swing.JLabel txtTime;
     private javax.swing.JTextField txtTotalFacultyAdmin;
     private javax.swing.JTextField txtTotalStudents;

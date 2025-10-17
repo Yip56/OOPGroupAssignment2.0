@@ -1,7 +1,7 @@
 550e8400-e29b-41d4-a716-446655440000|Jack|jack@mail.apu.edu.my|pass123|STUDENT
 550e8400-e29b-41d4-a716-446655440001|Chris|chris@mail.apu.edu.my|pass123|STUDENT
 550e8400-e29b-41d4-a716-446655440002|Cole|cole@mail.apu.edu.my|pass123|STUDENT
-550e8400-e29b-41d4-a716-446655440003|Tim|tim@mail.apu.edu.my|pass123|STUDENT
+550e8400-e29b-41d4-a716-446655440003|Frank|frank@mail.apu.edu.my|pass123|STUDENT
 123e4567-e89b-12d3-a456-426614174004|Bob|bob@mail.apu.edu.my|super456|SUPERVISOR
 123e4567-e89b-12d3-a456-426614174005|Bill|bill@mail.apu.edu.my|super456|SUPERVISOR
 223e4567-e89b-12d3-a456-426614174006|Mark|mark@mail.apu.edu.my|admin789|FACULTY_ADMIN
