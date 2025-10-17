@@ -4,7 +4,7 @@
  */
 package my.edu.apu.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 import my.edu.apu.interfaces.IFailedLoginAttempt;
 
@@ -14,13 +14,13 @@ import my.edu.apu.interfaces.IFailedLoginAttempt;
  */
 public class FailedLoginAttempt implements IFailedLoginAttempt {
 
-    private String id;
+    private final String id;
     private String uniEmail;
     private String reason;
-    private LocalDate timestamp;
+    private LocalDateTime timestamp;
 
     // Constructor for loading failed login attempts from file
-    public FailedLoginAttempt(String uniEmail, String reason, LocalDate timestamp, String id) {
+    public FailedLoginAttempt(String uniEmail, String reason, LocalDateTime timestamp, String id) {
         this.id = id;
         this.uniEmail = uniEmail;
         this.reason = reason;
@@ -32,7 +32,7 @@ public class FailedLoginAttempt implements IFailedLoginAttempt {
         this.id = UUID.randomUUID().toString();
         this.uniEmail = uniEmail;
         this.reason = reason;
-        this.timestamp = LocalDate.now();
+        this.timestamp = LocalDateTime.now();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class FailedLoginAttempt implements IFailedLoginAttempt {
     }
 
     @Override
-    public LocalDate getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return this.timestamp;
     }
 
@@ -66,7 +66,7 @@ public class FailedLoginAttempt implements IFailedLoginAttempt {
     }
 
     @Override
-    public void setTimestamp(LocalDate timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 }

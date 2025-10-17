@@ -5,13 +5,16 @@
 package my.edu.apu.controllers;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +30,7 @@ import my.edu.apu.models.Supervisor;
 import my.edu.apu.models.User;
 import my.edu.apu.repositories.*;
 import my.edu.apu.utils.AppNavigator;
+import my.edu.apu.utils.FailedLoginService;
 import my.edu.apu.views.panels.SystemAdminView;
 
 /**
@@ -55,6 +59,8 @@ public class SystemAdminController {
     private DefaultTableModel studentModel;
     private DefaultTableModel supervisorModel;
     private DefaultTableModel facultyAdminModel;
+    private DefaultTableModel loginAttemptsModel;
+    private DefaultTableModel aggrLoginAttemptsModel;
 
     public SystemAdminController(SystemAdminView systemAdminView, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, FailedLoginAttemptRepository loginAttemptRepo, String systemAdminId) {
         this.systemAdminView = systemAdminView;
@@ -77,10 +83,14 @@ public class SystemAdminController {
         initializeStudentAccounts();
         initializeSupervisorAccounts();
         initializeFacultyAdminAccounts();
+        initializeLoginAttempts();
+        initializeAggrLoginAttempts();
         manageUserAccounts();
         manageStudents();
         manageSupervisors();
         manageFacultyAdmins();
+        manageFailedLoginAttempts();
+        manageSignOut();
     }
 
     private void initializeDashboard() {
@@ -149,6 +159,7 @@ public class SystemAdminController {
         systemAdminView.getTblUserAccounts().removeColumn(idColumn);
     }
 
+    @SuppressWarnings("empty-statement")
     private void loadUsers() {
         // Clear the table model
         userAccountModel.setRowCount(0);
@@ -310,6 +321,7 @@ public class SystemAdminController {
             // Update model
             loadStudents();
             loadUsers();
+            initializeDashboard();
 
             // empty out details
             systemAdminView.getTxtStudentName().setText("");
@@ -376,6 +388,7 @@ public class SystemAdminController {
             // Update model
             loadStudents();
             loadUsers();
+            initializeDashboard();
 
             // Set update button to disabled
             systemAdminView.getBtnUpdateStudent().setEnabled(false);
@@ -423,6 +436,7 @@ public class SystemAdminController {
         // Update models
         loadStudents();
         loadUsers();
+        initializeDashboard();
 
         // Set button to disabled
         systemAdminView.getBtnDeleteStudent().setEnabled(false);
@@ -544,6 +558,7 @@ public class SystemAdminController {
         // Update supervisor and user models
         loadSupervisors();
         loadUsers();
+        initializeDashboard();
 
         // Reset supervisor form
         resetSupervisorForm();
@@ -588,6 +603,7 @@ public class SystemAdminController {
         // Update supervisor and user models
         loadSupervisors();
         loadUsers();
+        initializeDashboard();
 
         // Reset the supervisor form
         resetSupervisorForm();
@@ -604,6 +620,7 @@ public class SystemAdminController {
         // Update supervisor and user list
         loadSupervisors();
         loadUsers();
+        initializeDashboard();
 
         // Reset the supervisor form
         resetSupervisorForm();
@@ -715,6 +732,7 @@ public class SystemAdminController {
         // Update faculty admin and user models
         loadFacultyAdmins();
         loadUsers();
+        initializeDashboard();
 
         // Reset faculty admin form
         resetFacultyAdminForm();
@@ -754,6 +772,7 @@ public class SystemAdminController {
         // Update faculty admin and user models
         loadFacultyAdmins();
         loadUsers();
+        initializeDashboard();
 
         // Reset the faculty admin form
         resetFacultyAdminForm();
@@ -770,6 +789,7 @@ public class SystemAdminController {
         // Update models respectively
         loadFacultyAdmins();
         loadUsers();
+        initializeDashboard();
 
         // Reset form details
         resetFacultyAdminForm();
@@ -796,6 +816,156 @@ public class SystemAdminController {
         systemAdminView.getTxtFacultyAdminName().setText("");
         systemAdminView.getTxtFacultyAdminEmail().setText("");
         systemAdminView.getTxtFacultyAdminPassword().setText("");
+    }
+
+    private void initializeLoginAttempts() {
+        // Initialize failed login attempts model
+        String[] columns = {"Email", "Failure Reason", "Timestamp"};
+        loginAttemptsModel = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        // Load failed login attempt data in model
+        loadFailedLoginAttempts();
+
+        // Attach model to table
+        systemAdminView.getTblLoginAttempts().setModel(loginAttemptsModel);
+    }
+
+    private void loadFailedLoginAttempts() {
+        // Empty out the model
+        loginAttemptsModel.setRowCount(0);
+
+        List<FailedLoginAttempt> attempts = loginAttemptRepo.findAll();
+        for (FailedLoginAttempt attempt : attempts) {
+            // Get attempt details
+            String email = attempt.getUniEmail();
+            String reason = attempt.getReason();
+            String timestamp = dateFormatter.format(attempt.getTimestamp());
+
+            // Add row
+            loginAttemptsModel.addRow(new Object[]{email, reason, timestamp});
+        }
+    }
+
+    private void initializeAggrLoginAttempts() {
+        // Initialize faculty admin model
+        String[] columns = {"Email", "Failed Attempts", "Last Attempt Date", "Last Attempt Time", "Account Status"};
+        aggrLoginAttemptsModel = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        // Load data in the model
+        loadAggrFailedLoginAttempts();
+
+        // Empty out the model
+        systemAdminView.getTblAggregatedAttempts().setModel(aggrLoginAttemptsModel);
+
+    }
+
+    private void loadAggrFailedLoginAttempts() {
+        aggrLoginAttemptsModel.setRowCount(0);
+
+        // Get distinct emails
+        List<String> distinctEmails = FailedLoginService.getDistinctEmails(loginAttemptRepo);
+        for (String email : distinctEmails) {
+            // Try to find the user with respective email
+            Optional<User> user = userRepo.findByUniEmail(email);
+            User u = user.orElse(null);
+
+            // Get account status
+            Boolean accStatusState = (u != null) ? u.getAccountStatus() : null;
+            String accStatus;
+
+            if (accStatusState == null) {
+                accStatus = "–";
+            } else if (accStatusState) {
+                accStatus = "Enabled";
+            } else {
+                accStatus = "Disabled";
+            }
+
+            int failedAttempts = FailedLoginService.getTotalLoginFailsByEmail(loginAttemptRepo, email);
+
+            // Format date and time
+            LocalDateTime lastAttemptDate = FailedLoginService.getLastLoginAttemptDate(loginAttemptRepo, email);
+            String date = lastAttemptDate.format(dateFormatter);
+            String time = lastAttemptDate.format(timeFormatter);
+
+            // Add row
+            aggrLoginAttemptsModel.addRow(new Object[]{email, failedAttempts, date, time, accStatus});
+        }
+    }
+
+    private void manageFailedLoginAttempts() {
+        systemAdminView.getBtnEnableAccount().setEnabled(false);
+        systemAdminView.getBtnDisableAccount().setEnabled(false);
+
+        systemAdminView.getTblAggregatedAttempts().addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                // Get the user email
+                int row = systemAdminView.getTblAggregatedAttempts().getSelectedRow();
+                String email = String.valueOf(aggrLoginAttemptsModel.getValueAt(row, 0));
+
+                // Ensure user exists
+                Optional<User> user = userRepo.findByUniEmail(email);
+                if (user.isEmpty()) {
+                    return;
+                }
+
+                // Enable buttons
+                systemAdminView.getBtnEnableAccount().setEnabled(true);
+                systemAdminView.getBtnDisableAccount().setEnabled(true);
+            }
+        });
+
+        systemAdminView.getBtnEnableAccount().addActionListener(e -> updateAccountStatus(true));
+        systemAdminView.getBtnDisableAccount().addActionListener(e -> updateAccountStatus(false));
+        systemAdminView.getBtnClearLogs().addActionListener(e -> clearLogs());
+
+    }
+
+    private void updateAccountStatus(boolean status) {
+        // Get the user email
+        int row = systemAdminView.getTblAggregatedAttempts().getSelectedRow();
+        String email = String.valueOf(aggrLoginAttemptsModel.getValueAt(row, 0));
+
+        // Find, update and save 
+        User user = userRepo.findByUniEmail(email).get();
+        user.setAccountStatus(status);
+        userRepo.save();
+
+        // Disable buttons
+        systemAdminView.getBtnEnableAccount().setEnabled(false);
+        systemAdminView.getBtnDisableAccount().setEnabled(false);
+
+        // Update models
+        loadAggrFailedLoginAttempts();
+        loadUsers();
+    }
+
+    private void clearLogs() {
+        // Ensure that the user wishes to delete all logs
+        int confirmation = JOptionPane.showConfirmDialog(systemAdminView, "Are you sure you want to clear all logs?", "Confirm Log Deletion", JOptionPane.WARNING_MESSAGE);
+        if (confirmation != JOptionPane.OK_OPTION) {
+            return;
+        }
+
+        // Delete logs
+        for (FailedLoginAttempt attempt : loginAttemptRepo.findAll()) {
+            loginAttemptRepo.remove(attempt.getId());
+        }
+
+        // Update models
+        loadFailedLoginAttempts();
+        loadAggrFailedLoginAttempts();
     }
 
     private void manageUserAccounts() {
@@ -887,6 +1057,7 @@ public class SystemAdminController {
         loadStudents();
         loadSupervisors();
         loadFacultyAdmins();
+        initializeDashboard();
 
         // Reset text fields and buttons
         resetUserAccountDetails();
@@ -961,6 +1132,7 @@ public class SystemAdminController {
         loadStudents();
         loadSupervisors();
         loadFacultyAdmins();
+        initializeDashboard();
 
         // Reset text fields and buttons
         resetUserAccountDetails();
@@ -971,5 +1143,13 @@ public class SystemAdminController {
         systemAdminView.getTxtUsernameSearch().setText("");
         systemAdminView.getComboAccStatusSearch().setSelectedIndex(0);
         loadUsers();
+    }
+
+    private void manageSignOut() {
+        systemAdminView.getBtnSignOut().addActionListener(e -> {
+            // Switch to login frame
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(systemAdminView);
+            navigator.switchToLogin(mainFrame);
+        });
     }
 }

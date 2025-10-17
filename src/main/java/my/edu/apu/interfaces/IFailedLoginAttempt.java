@@ -4,7 +4,7 @@
  */
 package my.edu.apu.interfaces;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -19,12 +19,12 @@ public interface IFailedLoginAttempt {
 
     String getReason();
 
-    LocalDate getTimestamp();
+    LocalDateTime getTimestamp();
 
     // Setters
     void setUniEmail(String uniEmail);
 
     void setReason(String reason);
 
-    void setTimestamp(LocalDate timestamp);
+    void setTimestamp(LocalDateTime timestamp);
 }

@@ -1,13 +1,12 @@
 package my.edu.apu.repositories;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,6 +32,19 @@ public class FailedLoginAttemptRepository implements IRepository<FailedLoginAtte
         }
 
         return Optional.empty();
+    }
+
+    public List<FailedLoginAttempt> findByEmail(String email) {
+        // Filter by email
+        List<FailedLoginAttempt> filtered = new ArrayList<>();
+        for (FailedLoginAttempt attempt : failedLoginAttempts) {
+            if (attempt.getUniEmail().equals(email)) {
+                filtered.add(attempt);
+            }
+        }
+
+        // return
+        return filtered;
     }
 
     @Override
@@ -95,7 +107,7 @@ public class FailedLoginAttemptRepository implements IRepository<FailedLoginAtte
                 String id = parts[0];
                 String uniEmail = parts[1];
                 String reason = parts[2];
-                LocalDate timestamp = LocalDate.parse(parts[3]);
+                LocalDateTime timestamp = LocalDateTime.parse(parts[3]);
 
                 // Add to list
                 FailedLoginAttempt failedLoginAttempt = new FailedLoginAttempt(uniEmail, reason, timestamp, id);
