@@ -4,6 +4,8 @@
  */
 package my.edu.apu.views.panels;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CS Yip
@@ -26,6 +28,8 @@ public class SupervisorView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelDashboard = new javax.swing.JPanel();
         txtGreeting = new javax.swing.JLabel();
@@ -47,13 +51,12 @@ public class SupervisorView extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblFeedback = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        listStudentName = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
         txtFeedback = new javax.swing.JTextField();
         btnAddFeedback = new javax.swing.JButton();
         btnDeleteFeedback = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblStudentNames = new javax.swing.JTable();
         panelAppointments = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblAppointmentRequests = new javax.swing.JTable();
@@ -69,17 +72,32 @@ public class SupervisorView extends javax.swing.JPanel {
         comboDay = new javax.swing.JComboBox<>();
         comboMonth = new javax.swing.JComboBox<>();
         comboYear = new javax.swing.JComboBox<>();
-        fieldTime = new javax.swing.JTextField();
-        btnCreateTImeslot = new javax.swing.JButton();
-        btnDeleteTImeslot = new javax.swing.JButton();
+        btnCreateTimeslot = new javax.swing.JButton();
+        btnDeleteTimeslot = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        comboHour = new javax.swing.JComboBox<>();
+        comboMinute = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
         panelAccounts = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         btnSignOut = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable1);
 
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -168,7 +186,7 @@ public class SupervisorView extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(txtGreeting))
-                        .addContainerGap(139, Short.MAX_VALUE))))
+                        .addContainerGap(154, Short.MAX_VALUE))))
         );
         panelDashboardLayout.setVerticalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +242,7 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGroup(panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
         panelStudentsLayout.setVerticalGroup(
             panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,18 +272,14 @@ public class SupervisorView extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblFeedback);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("Student Name:");
-
-        listStudentName.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(listStudentName);
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Feedback:");
+
+        txtFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFeedbackActionPerformed(evt);
+            }
+        });
 
         btnAddFeedback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddFeedback.setText("Add Feedback");
@@ -278,6 +292,19 @@ public class SupervisorView extends javax.swing.JPanel {
         btnDeleteFeedback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDeleteFeedback.setText("Delete Feedback");
 
+        tblStudentNames.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Student Names"
+            }
+        ));
+        jScrollPane8.setViewportView(tblStudentNames);
+
         javax.swing.GroupLayout panelFeedbackLayout = new javax.swing.GroupLayout(panelFeedback);
         panelFeedback.setLayout(panelFeedbackLayout);
         panelFeedbackLayout.setHorizontalGroup(
@@ -285,16 +312,15 @@ public class SupervisorView extends javax.swing.JPanel {
             .addGroup(panelFeedbackLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(panelFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(panelFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(txtFeedback)
-                    .addComponent(jScrollPane4)
                     .addComponent(btnAddFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDeleteFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDeleteFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(44, 44, 44))
         );
         panelFeedbackLayout.setVerticalGroup(
@@ -303,10 +329,8 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(panelFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelFeedbackLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,7 +387,7 @@ public class SupervisorView extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(panelAppointmentsLayout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addGroup(panelAppointmentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAppointmentsLayout.createSequentialGroup()
                                 .addComponent(btnApproveAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -400,7 +424,7 @@ public class SupervisorView extends javax.swing.JPanel {
         jTabbedPane1.addTab("Appoinments", panelAppointments);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Appoinment Requests:");
+        jLabel4.setText("Timeslots:");
 
         tblTimeslots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -426,19 +450,19 @@ public class SupervisorView extends javax.swing.JPanel {
 
         comboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnCreateTImeslot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCreateTImeslot.setText("Create Timeslot");
-        btnCreateTImeslot.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateTimeslot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreateTimeslot.setText("Create Timeslot");
+        btnCreateTimeslot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateTImeslotActionPerformed(evt);
+                btnCreateTimeslotActionPerformed(evt);
             }
         });
 
-        btnDeleteTImeslot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDeleteTImeslot.setText("Delete Timeslot");
-        btnDeleteTImeslot.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteTimeslot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeleteTimeslot.setText("Delete Timeslot");
+        btnDeleteTimeslot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteTImeslotActionPerformed(evt);
+                btnDeleteTimeslotActionPerformed(evt);
             }
         });
 
@@ -454,6 +478,12 @@ public class SupervisorView extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("Time:");
 
+        comboHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboMinute.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel7.setText(":");
+
         javax.swing.GroupLayout panelTimeslotsLayout = new javax.swing.GroupLayout(panelTimeslots);
         panelTimeslots.setLayout(panelTimeslotsLayout);
         panelTimeslotsLayout.setHorizontalGroup(
@@ -463,24 +493,35 @@ public class SupervisorView extends javax.swing.JPanel {
                 .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelTimeslotsLayout.createSequentialGroup()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(131, 131, 131)
-                        .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnCreateTimeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelTimeslotsLayout.createSequentialGroup()
+                                    .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(comboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(42, 42, 42)
+                                    .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(9, 9, 9)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelTimeslotsLayout.createSequentialGroup()
+                                    .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel9))
+                                    .addGap(81, 81, 81)
+                                    .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel12))
+                                    .addGap(51, 51, 51)))
                             .addGroup(panelTimeslotsLayout.createSequentialGroup()
-                                .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11))
-                                .addGap(75, 75, 75)
-                                .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)))
-                            .addComponent(btnDeleteTImeslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateTImeslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(57, 57, 57)
+                                .addComponent(btnDeleteTimeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel4))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         panelTimeslotsLayout.setVerticalGroup(
             panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,7 +534,7 @@ public class SupervisorView extends javax.swing.JPanel {
                         .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -501,14 +542,16 @@ public class SupervisorView extends javax.swing.JPanel {
                         .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTimeslotsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
                         .addGap(104, 104, 104)
-                        .addComponent(btnCreateTImeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteTImeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCreateTimeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeleteTimeslot, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelTimeslotsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -540,7 +583,7 @@ public class SupervisorView extends javax.swing.JPanel {
                     .addGroup(panelAccountsLayout.createSequentialGroup()
                         .addGap(517, 517, 517)
                         .addComponent(btnSignOut)))
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         panelAccountsLayout.setVerticalGroup(
             panelAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,13 +631,17 @@ public class SupervisorView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboDayActionPerformed
 
-    private void btnCreateTImeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateTImeslotActionPerformed
+    private void btnCreateTimeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateTimeslotActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateTImeslotActionPerformed
+    }//GEN-LAST:event_btnCreateTimeslotActionPerformed
 
-    private void btnDeleteTImeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTImeslotActionPerformed
+    private void btnDeleteTimeslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTimeslotActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteTImeslotActionPerformed
+    }//GEN-LAST:event_btnDeleteTimeslotActionPerformed
+
+    private void txtFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFeedbackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFeedbackActionPerformed
 
     public javax.swing.JTable getTblAppointmentsWidget() {
         return this.tblAppointmentsWidget;
@@ -603,6 +650,22 @@ public class SupervisorView extends javax.swing.JPanel {
         
     public javax.swing.JTable getTblAppointmentRequests() {
         return this.tblAppointmentRequests;
+    }
+    
+    public javax.swing.JTable getTblStudents() {
+        return this.tblStudents;
+    }
+    
+    public javax.swing.JTable getTblFeedbackLog() {
+        return this.tblFeedback;
+    }
+    
+    public javax.swing.JTable getTblStudentNames(){
+        return this.tblStudentNames;
+    }
+    
+    public javax.swing.JTable getTblTimeslot(){
+        return this.tblTimeslots;
     }
     
     public javax.swing.JButton getBtnApproveAppointments() {
@@ -621,23 +684,63 @@ public class SupervisorView extends javax.swing.JPanel {
         return this.btnSetAppointmentAsPending;
     }
 
+    public javax.swing.JButton getBtnAddFeedback() {
+        return this.btnAddFeedback;
+    }
+    
+    public javax.swing.JButton getBtnDeleteFeedback() {
+        return this.btnDeleteFeedback;
+    }
+    
+    public javax.swing.JButton getBtnCreateTimeslot() {
+        return this.btnCreateTimeslot;
+    }
+    
+    public javax.swing.JButton getBtnDeleteTimeslot() {
+        return this.btnDeleteTimeslot;
+    }
+    
+    public javax.swing.JTextField getTxtFeedback(){
+        return this.txtFeedback;
+    }
+    
+    public javax.swing.JComboBox getComboDay(){
+        return this.comboDay;
+    }
+    
+    public javax.swing.JComboBox getComboMonth(){
+        return this.comboMonth;
+    }
+    
+    public javax.swing.JComboBox getComboYear(){
+        return this.comboYear;
+    }
+    
+    public javax.swing.JComboBox getComboHour(){
+        return this.comboHour;
+    }
+    
+    public javax.swing.JComboBox getComboMinute(){
+        return this.comboMinute;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAddFeedback;
     private javax.swing.JButton btnAppointments;
     private javax.swing.JButton btnApproveAppointments;
-    private javax.swing.JButton btnCreateTImeslot;
+    private javax.swing.JButton btnCreateTimeslot;
     private javax.swing.JButton btnDeleteAllRejectedAppointments;
     private javax.swing.JButton btnDeleteFeedback;
-    private javax.swing.JButton btnDeleteTImeslot;
+    private javax.swing.JButton btnDeleteTimeslot;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnRejectAppointments;
     private javax.swing.JButton btnSetAppointmentAsPending;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JComboBox<String> comboDay;
+    private javax.swing.JComboBox<String> comboHour;
+    private javax.swing.JComboBox<String> comboMinute;
     private javax.swing.JComboBox<String> comboMonth;
     private javax.swing.JComboBox<String> comboYear;
-    private javax.swing.JTextField fieldTime;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -655,11 +758,12 @@ public class SupervisorView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JList<String> listStudentName;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel panelAccounts;
     private javax.swing.JPanel panelAppointments;
     private javax.swing.JPanel panelDashboard;
@@ -669,6 +773,7 @@ public class SupervisorView extends javax.swing.JPanel {
     private javax.swing.JTable tblAppointmentRequests;
     private javax.swing.JTable tblAppointmentsWidget;
     private javax.swing.JTable tblFeedback;
+    private javax.swing.JTable tblStudentNames;
     private javax.swing.JTable tblStudents;
     private javax.swing.JTable tblTimeslots;
     private javax.swing.JLabel txtDate;
