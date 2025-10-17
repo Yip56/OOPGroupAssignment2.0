@@ -12,20 +12,22 @@ public class AppNavigator {
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
     private final FeedbackRepository feedbackRepo;
+    private final FailedLoginAttemptRepository loginAttemptRepo;
 
-    public AppNavigator(UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo) {
+    public AppNavigator(UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, FailedLoginAttemptRepository loginAttemptRepo) {
         this.userRepo = userRepo;
         this.studentRepo = studentRepo;
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
         this.feedbackRepo = feedbackRepo;
+        this.loginAttemptRepo = loginAttemptRepo;
     }
 
     public void displayLogin() {
         SwingUtilities.invokeLater(() -> {
             // Create login frame and assign its controller
             LoginFrame LoginFrame = new LoginFrame();
-            AuthController authController = new AuthController(LoginFrame, this, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
+            AuthController authController = new AuthController(LoginFrame, this, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, loginAttemptRepo);
             authController.displayLoginFrame();
         });
     }

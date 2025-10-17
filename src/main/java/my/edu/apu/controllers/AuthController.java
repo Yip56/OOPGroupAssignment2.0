@@ -15,7 +15,6 @@ import my.edu.apu.views.LoginFrame;
 import my.edu.apu.views.MainFrame;
 import my.edu.apu.views.panels.StudentView;
 import my.edu.apu.views.panels.SupervisorView;
-import my.edu.apu.controllers.StudentViewController;
 import my.edu.apu.models.Student;
 import my.edu.apu.models.Supervisor;
 import my.edu.apu.utils.AppNavigator;
@@ -35,8 +34,9 @@ public class AuthController {
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
     private final FeedbackRepository feedbackRepo;
+    private final FailedLoginAttemptRepository loginAttemptRepo;
 
-    public AuthController(LoginFrame loginFrame, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo) {
+    public AuthController(LoginFrame loginFrame, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, FailedLoginAttemptRepository loginAttemptRepo) {
         this.loginFrame = loginFrame;
         this.navigator = navigator;
         this.userRepo = userRepo;
@@ -44,6 +44,7 @@ public class AuthController {
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
         this.feedbackRepo = feedbackRepo;
+        this.loginAttemptRepo = loginAttemptRepo;
 
         // Authenticate the user when the login button is pressed
         loginFrame.getLoginButton().addActionListener(e -> authenticate());
@@ -111,7 +112,7 @@ public class AuthController {
                 }
                 case Role.SYSTEM_ADMIN -> {
                     SystemAdminView systemAdminView = new SystemAdminView();
-                    new SystemAdminController(systemAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, user.getId());
+                    new SystemAdminController(systemAdminView, navigator, userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, loginAttemptRepo, user.getId());
                     mainFrame.setContentPane(systemAdminView);
                 }
             }

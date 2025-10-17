@@ -23,6 +23,7 @@ public class App {
         Path supervisorFilePath = Paths.get("data", "supervisors.txt");
         Path appointmentFilePath = Paths.get("data", "appointments.txt");
         Path feedbackFilePath = Paths.get("data", "feedbacks.txt");
+        Path failedLoginAttemptsPath = Paths.get("data", "failed-login-attempts.txt");
 
         // Initialize repositories
         UserRepository userRepo = new UserRepository(userFilePath.toString());
@@ -30,12 +31,13 @@ public class App {
         SupervisorRepository supervisorRepo = new SupervisorRepository(supervisorFilePath.toString(), userRepo);
         AppointmentRepository appointmentRepo = new AppointmentRepository(appointmentFilePath.toString());
         FeedbackRepository feedbackRepo = new FeedbackRepository(feedbackFilePath.toString());
+        FailedLoginAttemptRepository loginAttemptRepo = new FailedLoginAttemptRepository(failedLoginAttemptsPath.toString());
 
         // Set up LAF
         FlatLightLaf.setup();
 
         // Display login frame
-        AppNavigator navigator = new AppNavigator(userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo);
+        AppNavigator navigator = new AppNavigator(userRepo, studentRepo, supervisorRepo, appointmentRepo, feedbackRepo, loginAttemptRepo);
         navigator.displayLogin();
     }
 }

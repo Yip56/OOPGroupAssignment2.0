@@ -20,6 +20,7 @@ import my.edu.apu.enums.Intake;
 import my.edu.apu.enums.Program;
 import my.edu.apu.enums.Role;
 import my.edu.apu.models.Appointment;
+import my.edu.apu.models.FailedLoginAttempt;
 import my.edu.apu.models.Feedback;
 import my.edu.apu.models.Student;
 import my.edu.apu.models.Supervisor;
@@ -42,6 +43,7 @@ public class SystemAdminController {
     private final SupervisorRepository supervisorRepo;
     private final AppointmentRepository appointmentRepo;
     private final FeedbackRepository feedbackRepo;
+    private final FailedLoginAttemptRepository loginAttemptRepo;
 
     // Set up date formatters
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy"); // e.g. 05/10/25
@@ -54,7 +56,7 @@ public class SystemAdminController {
     private DefaultTableModel supervisorModel;
     private DefaultTableModel facultyAdminModel;
 
-    public SystemAdminController(SystemAdminView systemAdminView, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, String systemAdminId) {
+    public SystemAdminController(SystemAdminView systemAdminView, AppNavigator navigator, UserRepository userRepo, StudentRepository studentRepo, SupervisorRepository supervisorRepo, AppointmentRepository appointmentRepo, FeedbackRepository feedbackRepo, FailedLoginAttemptRepository loginAttemptRepo, String systemAdminId) {
         this.systemAdminView = systemAdminView;
         this.systemAdminId = systemAdminId;
         this.navigator = navigator;
@@ -63,6 +65,7 @@ public class SystemAdminController {
         this.supervisorRepo = supervisorRepo;
         this.appointmentRepo = appointmentRepo;
         this.feedbackRepo = feedbackRepo;
+        this.loginAttemptRepo = loginAttemptRepo;
 
         initializeSystemAdminView();
     }
