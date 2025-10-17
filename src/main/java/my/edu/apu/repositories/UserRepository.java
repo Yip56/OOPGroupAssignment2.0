@@ -99,7 +99,8 @@ public class UserRepository implements IRepository<User> {
                         + user.getName() + "|"
                         + user.getUniEmail() + "|"
                         + user.getPassword() + "|"
-                        + user.getRole().name());
+                        + user.getRole().name() + "|"
+                        + String.valueOf(user.getAccountStatus()));
                 writer.newLine(); // go to next line
             }
         } catch (IOException e) {
@@ -131,9 +132,10 @@ public class UserRepository implements IRepository<User> {
                 String uniEmail = parts[2];
                 String password = parts[3];
                 Role role = Role.valueOf(parts[4]);
+                boolean accStatus = Boolean.parseBoolean(parts[5]);
 
-                // restore user with given ID and update list
-                User user = new User(name, uniEmail, password, role, id);
+                // restore user with given ID and account status, then update list
+                User user = new User(name, uniEmail, password, role, id, accStatus);
                 users.add(user);
             }
         } catch (IOException e) {

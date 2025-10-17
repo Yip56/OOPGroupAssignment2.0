@@ -16,19 +16,23 @@ public interface IUser {
     String getId();
 
     String getName();
-    
+
     String getUniEmail();
 
     String getPassword();
 
     Role getRole();
 
+    boolean getAccountStatus();
+
     // Setters
     void setName(String name);
-    
+
     void setUniEmail(String uniEmail);
 
     void setPassword(String password);
 
     void setRole(Role role);
+
+    void setAccountStatus(boolean status);
 }

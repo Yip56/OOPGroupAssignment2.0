@@ -850,11 +850,14 @@ public class SystemAdminController {
         }
 
         // Update user details
-        User updatedUser = new User(updatedName, updatedEmail, currentUser.getPassword(), currentUser.getRole(), userId);
+        User updatedUser = new User(updatedName, updatedEmail, currentUser.getPassword(), currentUser.getRole(), userId, currentUser.getAccountStatus());
         userRepo.update(updatedUser);
 
-        // Update table model with new user list
+        // Update ALL user models
         loadUsers();
+        loadStudents();
+        loadSupervisors();
+        loadFacultyAdmins();
 
         // Reset text fields and buttons
         resetUserAccountDetails();

@@ -83,12 +83,12 @@
                                   <Group type="102" attributes="0">
                                       <Component id="btnQuickUserManagement" min="-2" pref="340" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnQuickFailedLogins" min="-2" pref="340" max="-2" attributes="0"/>
+                                      <Component id="btnQuickManageStudents" min="-2" pref="340" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="btnQuickResetPasswords" min="-2" pref="340" max="-2" attributes="0"/>
+                                      <Component id="btnQuickManageSupervisors" min="-2" pref="340" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnQuickAccount" min="-2" pref="340" max="-2" attributes="0"/>
+                                      <Component id="btnQuickManageFacAdmins" min="-2" pref="340" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -140,13 +140,13 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="btnQuickFailedLogins" alignment="0" pref="131" max="32767" attributes="0"/>
+                                          <Component id="btnQuickManageStudents" alignment="0" pref="131" max="32767" attributes="0"/>
                                           <Component id="btnQuickUserManagement" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="btnQuickResetPasswords" alignment="3" min="-2" pref="131" max="-2" attributes="0"/>
-                                          <Component id="btnQuickAccount" alignment="3" min="-2" pref="131" max="-2" attributes="0"/>
+                                          <Component id="btnQuickManageSupervisors" alignment="3" min="-2" pref="131" max="-2" attributes="0"/>
+                                          <Component id="btnQuickManageFacAdmins" alignment="3" min="-2" pref="131" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -240,28 +240,28 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickUserManagementActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnQuickFailedLogins">
+            <Component class="javax.swing.JButton" name="btnQuickManageStudents">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Monitor Failed Logins"/>
+                <Property name="text" type="java.lang.String" value="Manage Students"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickFailedLoginsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickManageStudentsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnQuickAccount">
+            <Component class="javax.swing.JButton" name="btnQuickManageFacAdmins">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Account"/>
+                <Property name="text" type="java.lang.String" value="Manage Faculty Admins"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickAccountActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickManageFacAdminsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnQuickResetPasswords">
+            <Component class="javax.swing.JButton" name="btnQuickManageSupervisors">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Reset Passwords"/>
+                <Property name="text" type="java.lang.String" value="Manage Supervisors"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickResetPasswordsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuickManageSupervisorsActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
@@ -323,26 +323,25 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtUsernameSearch" max="32767" attributes="0"/>
+                                  <Component id="btnUpdateUserDetails" alignment="0" pref="362" max="32767" attributes="0"/>
+                                  <Component id="btnDeleteUser" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmailSearch" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnResetSearch" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jSeparator2" max="32767" attributes="0"/>
+                                  <Component id="comboAccStatusSearch" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtName" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtUserEmail" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnUpdateUserDetails" alignment="0" pref="356" max="32767" attributes="0"/>
-                                          <Component id="btnDeleteUser" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtEmailSearch" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="btnResetSearch" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jSeparator2" max="32767" attributes="0"/>
-                                          <Component id="txtName" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="txtUserEmail" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtUsername2" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtUsername3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtUsername4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtUsername5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtUsername2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUsername3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUsername6" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="txtUsername4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUsername5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtUsername7" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Component id="comboUserAccStatus" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -366,10 +365,14 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtEmailSearch" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtUsername6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="comboAccStatusSearch" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnResetSearch" min="-2" pref="41" max="-2" attributes="0"/>
-                                      <EmptySpace pref="74" max="32767" attributes="0"/>
-                                      <Component id="jSeparator2" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jSeparator2" min="-2" pref="8" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Component id="txtUsername4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtName" min="-2" max="-2" attributes="0"/>
@@ -377,6 +380,10 @@
                                       <Component id="txtUsername5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtUserEmail" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtUsername7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="comboUserAccStatus" min="-2" pref="32" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnUpdateUserDetails" min="-2" pref="47" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -516,11 +523,58 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnUpdateUserDetails">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Update User Details"/>
+                        <Property name="text" type="java.lang.String" value="Update User"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateUserDetailsActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboAccStatusSearch">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="3">
+                            <StringItem index="0" value="All"/>
+                            <StringItem index="1" value="Enabled"/>
+                            <StringItem index="2" value="Disabled"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboAccStatusSearchActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="txtUsername6">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Helvetica Neue" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Filter by Account Status:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboUserAccStatus">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="3">
+                            <StringItem index="0" value="---"/>
+                            <StringItem index="1" value="Enabled"/>
+                            <StringItem index="2" value="Disabled"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="txtUsername7">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Helvetica Neue" size="13" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Account Status:"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1025,21 +1079,16 @@
                                   <Component id="btnCreateFacultyAdmin" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtFacultyAdminName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnDeleteFacultyAdmin" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Component id="txtFacultyAdminEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtFacultyAdminEmail" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtFacultyAdminPassword" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="txtFacultyAdminPassword" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1194,276 +1243,6 @@
                 </Container>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Monitor Failed Logins">
-                <Property name="tabTitle" type="java.lang.String" value="Monitor Failed Logins"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane5" pref="960" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="542" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="tblFailedLoginAttempts">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="7">
-                        <Column editable="true" title="Name" type="java.lang.Object">
-                          <Data value="Jack"/>
-                          <Data value="Chris"/>
-                          <Data value="Cole"/>
-                          <Data value="Tim"/>
-                          <Data value="Bob"/>
-                          <Data value="Bill"/>
-                          <Data value="Mark"/>
-                        </Column>
-                        <Column editable="true" title="Email" type="java.lang.Object">
-                          <Data value="jack@mail.apu.edu.my"/>
-                          <Data value="chris@mail.apu.edu.my"/>
-                          <Data value="cole@mail.apu.edu.my"/>
-                          <Data value="tim@mail.apu.edu.my"/>
-                          <Data value="bob@mail.apu.edu.my"/>
-                          <Data value="bill@mail.apu.edu.my"/>
-                          <Data value="mark@mail.apu.edu.my"/>
-                        </Column>
-                        <Column editable="true" title="Total Failed Login Attempts" type="java.lang.Object">
-                          <Data value="9"/>
-                          <Data value="12"/>
-                          <Data value="11"/>
-                          <Data value="5"/>
-                          <Data value="12"/>
-                          <Data value="3"/>
-                          <Data value="null"/>
-                        </Column>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabel17">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Helvetica Neue" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Failed Login Attempts:"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Reset Passwords">
-                <Property name="tabTitle" type="java.lang.String" value="Reset Passwords"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" alignment="0" min="-2" pref="593" max="-2" attributes="0"/>
-                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" max="32767" attributes="0"/>
-                          <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jButton5" alignment="0" pref="361" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" pref="542" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="59" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Helvetica Neue" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="User Accounts:"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane6">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="7">
-                        <Column editable="true" title="Name" type="java.lang.Object">
-                          <Data value="Jack"/>
-                          <Data value="Chris"/>
-                          <Data value="Cole"/>
-                          <Data value="Tim"/>
-                          <Data value="Bob"/>
-                          <Data value="Bill"/>
-                          <Data value="Mark"/>
-                        </Column>
-                        <Column editable="true" title="Email" type="java.lang.Object">
-                          <Data value="jack@mail.apu.edu.my"/>
-                          <Data value="chris@mail.apu.edu.my"/>
-                          <Data value="cole@mail.apu.edu.my"/>
-                          <Data value="tim@mail.apu.edu.my"/>
-                          <Data value="bob@mail.apu.edu.my"/>
-                          <Data value="bill@mail.apu.edu.my"/>
-                          <Data value="mark@mail.apu.edu.my"/>
-                        </Column>
-                        <Column editable="true" title="Total Failed Login Attempts" type="java.lang.Object">
-                          <Data value="9"/>
-                          <Data value="12"/>
-                          <Data value="11"/>
-                          <Data value="5"/>
-                          <Data value="12"/>
-                          <Data value="3"/>
-                          <Data value="null"/>
-                        </Column>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabel19">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Helvetica Neue" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="New Password:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Helvetica Neue" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Confirm New Password:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Update User Password"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">

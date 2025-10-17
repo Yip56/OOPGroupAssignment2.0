@@ -17,8 +17,8 @@ public class Supervisor extends AbstractUser implements ISupervisor {
     }
 
 // Constructor with id + timeslots (for restoring from file)
-    public Supervisor(String name, String uniEmail, String password, String id, List<LocalDateTime> timeslots) {
-        super(name, uniEmail, password, Role.SUPERVISOR, id);
+    public Supervisor(String name, String uniEmail, String password, String id, List<LocalDateTime> timeslots, boolean status) {
+        super(name, uniEmail, password, Role.SUPERVISOR, id, status);
         this.timeslots = new ArrayList<>(timeslots); // make a copy to protect internal state
     }
 

@@ -120,7 +120,8 @@ public class StudentRepository implements IRepository<Student> {
                         dob,
                         supervisorId,
                         intake,
-                        program
+                        program,
+                        baseUser.getAccountStatus()
                 );
                 students.add(student);
             }

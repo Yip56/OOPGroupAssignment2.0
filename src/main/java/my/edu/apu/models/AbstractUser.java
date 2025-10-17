@@ -20,6 +20,7 @@ public abstract class AbstractUser implements IUser {
     private String uniEmail;
     private String password;
     private Role role;
+    private boolean accountStatus;
 
     public AbstractUser(String name, String uniEmail, String password, Role role) {
         this.id = UUID.randomUUID().toString(); // auto-generate unique ID
@@ -27,14 +28,16 @@ public abstract class AbstractUser implements IUser {
         this.uniEmail = uniEmail;
         this.password = password;
         this.role = role;
+        this.accountStatus = true;
     }
 
-    public AbstractUser(String name, String uniEmail, String password, Role role, String id) {
+    public AbstractUser(String name, String uniEmail, String password, Role role, String id, boolean status) {
         this.id = id; // Allow ids to be set for restoration from file
         this.name = name;
         this.uniEmail = uniEmail; // also unique, used for identification during login
         this.password = password;
         this.role = role;
+        this.accountStatus = status;
     }
 
     @Override
@@ -81,5 +84,15 @@ public abstract class AbstractUser implements IUser {
     @Override
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public boolean getAccountStatus() {
+        return this.accountStatus;
+    }
+
+    @Override
+    public void setAccountStatus(boolean status) {
+        this.accountStatus = status;
     }
 }

@@ -101,7 +101,8 @@ public class SupervisorRepository implements IRepository<Supervisor> {
                             user.getUniEmail(),
                             user.getPassword(),
                             user.getId(),
-                            timeslots
+                            timeslots,
+                            user.getAccountStatus()
                     );
                     supervisors.add(sup);
                 });

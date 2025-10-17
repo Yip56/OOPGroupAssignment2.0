@@ -20,8 +20,8 @@ public class Student extends AbstractUser implements IStudent {
 
     // ✅ Full constructor (used for restoring from file / repo)
     public Student(String name, String uniEmail, String password, String id,
-            LocalDate dob, String supervisorId, Intake intake, Program program) {
-        super(name, uniEmail, password, Role.STUDENT, id);
+            LocalDate dob, String supervisorId, Intake intake, Program program, boolean status) {
+        super(name, uniEmail, password, Role.STUDENT, id, status);
         this.dob = dob;
         this.supervisorId = supervisorId;
         this.intake = intake;
