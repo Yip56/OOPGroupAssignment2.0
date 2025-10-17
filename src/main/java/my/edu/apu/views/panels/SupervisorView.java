@@ -143,7 +143,12 @@ public class SupervisorView extends javax.swing.JPanel {
             }
         });
 
-        btnAccount.setText("Account Settings");
+        btnAccount.setText("Account");
+        btnAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccountActionPerformed(evt);
+            }
+        });
 
         txtDate.setText("6th September, 2025");
 
@@ -594,7 +599,7 @@ public class SupervisorView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
-        // TODO add your handling code here:
+        this.jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void btnAddFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeedbackActionPerformed
@@ -602,7 +607,7 @@ public class SupervisorView extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddFeedbackActionPerformed
 
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
-        // TODO add your handling code here:
+        this.jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
     private void comboDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDayActionPerformed
@@ -620,6 +625,10 @@ public class SupervisorView extends javax.swing.JPanel {
     private void txtFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFeedbackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFeedbackActionPerformed
+
+    private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
+        this.jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_btnAccountActionPerformed
 
     public javax.swing.JTable getTblAppointmentsWidget() {
         return this.tblAppointmentsWidget;

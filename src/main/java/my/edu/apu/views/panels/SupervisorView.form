@@ -256,8 +256,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnAccount">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Account Settings"/>
+                <Property name="text" type="java.lang.String" value="Account"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAccountActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="txtDate">
               <Properties>
