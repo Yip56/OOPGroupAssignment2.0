@@ -94,6 +94,7 @@ public class SupervisorViewController {
         initializeComboMinute();
         initializeComboHour();
         manageTimeslots();
+        manageSignOut();
     }
     
     private void updateTimeslots(){
@@ -188,11 +189,19 @@ public class SupervisorViewController {
         Supervisor sup = supervisorRepo.findById(supervisorId).get();
         sup.removeTimeslot(localDateTime);
         supervisorRepo.save();
-
+        supervisorView.getBtnDeleteTimeslot().setEnabled(false);
         loadTimeslots();
         
     }
     private void manageTimeslots(){
+        supervisorView.getBtnDeleteTimeslot().setEnabled(false);
+        
+        supervisorView.getTblTimeslot().addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseReleased(java.awt.event.MouseEvent evt){
+                supervisorView.getBtnDeleteTimeslot().setEnabled(true);
+            }
+        });
+
        
         supervisorView.getBtnCreateTimeslot().addActionListener(e -> updateTimeslots());
         supervisorView.getBtnDeleteTimeslot().addActionListener(e -> deleteTimeslots());
@@ -542,8 +551,18 @@ public class SupervisorViewController {
         }
         loadAppointments();
     }
+    
+    private void manageSignOut() {
+        supervisorView.getBtnSignOut().addActionListener(e -> {
+            // Switch to login frame
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(supervisorView);
+            navigator.switchToLogin(mainFrame);
+        });
+    }
 
     private void displayMessage(String message, String title) {
         JOptionPane.showMessageDialog(supervisorView, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
+    
+    
 }

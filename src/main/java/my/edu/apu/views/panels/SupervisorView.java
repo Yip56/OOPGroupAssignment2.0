@@ -683,6 +683,10 @@ public class SupervisorView extends javax.swing.JPanel {
         return this.btnCreateTimeslot;
     }
     
+    public javax.swing.JButton getBtnSignOut() {
+        return this.btnSignOut;
+    }
+    
     public javax.swing.JButton getBtnDeleteTimeslot() {
         return this.btnDeleteTimeslot;
     }
