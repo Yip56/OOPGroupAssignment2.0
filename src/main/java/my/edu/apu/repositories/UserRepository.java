@@ -91,7 +91,6 @@ public class UserRepository implements IRepository<User> {
 
         // Create a bufferedWriter
         try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
-            System.out.println("xxxx");
             // Loop through user list
             for (User user : users) {
                 // Write in "id|name|password|role" format
