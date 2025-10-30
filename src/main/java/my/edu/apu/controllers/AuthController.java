@@ -4,11 +4,14 @@
  */
 package my.edu.apu.controllers;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import my.edu.apu.enums.Role;
+import my.edu.apu.models.FailedLoginAttempt;
 import my.edu.apu.models.User;
 import my.edu.apu.repositories.*;
 import my.edu.apu.views.LoginFrame;
@@ -74,12 +77,49 @@ public class AuthController {
         // Ensure password is correct
         if (!user.getPassword().equals(password)) {
             displayErrorDialog("Your password is incorrect, please try again.");
+
+            // Add failed login attempt
+            FailedLoginAttempt failedLoginAttempt = new FailedLoginAttempt(user.getUniEmail(), "Incorrect password.");
+            loginAttemptRepo.add(failedLoginAttempt);
+            lockAccountIfNeeded(user);
+
         } // Ensure student has supervisor assigned (if user is a student)
         else if (user.getRole().equals(Role.STUDENT) && !isSupervisorAssigned(user)) {
             displayErrorDialog("You have not been assigned a supervisor yet. Please try again later.");
+
+            // Add failed login attempt
+            FailedLoginAttempt failedLoginAttempt = new FailedLoginAttempt(user.getUniEmail(), "No assigned supervisor.");
+            loginAttemptRepo.add(failedLoginAttempt);
+            lockAccountIfNeeded(user);
+
+        } // Ensure user's account is enabled
+        else if (!user.getAccountStatus()) {
+            displayErrorDialog("Your account is disabled. Please try again later or contact the university.");
+
+            // Add failed login attempt
+            FailedLoginAttempt failedLoginAttempt = new FailedLoginAttempt(user.getUniEmail(), "Account is disabled.");
+            loginAttemptRepo.add(failedLoginAttempt);
+            lockAccountIfNeeded(user);
+
         } // Display the mainframe if authenticated
         else {
             displayMainFrame(user);
+        }
+    }
+
+    private boolean shouldLockAccount(User user) {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime fiveMinutesAgo = now.minusMinutes(5);
+
+        List<FailedLoginAttempt> recentFailedAttempts = loginAttemptRepo.findByEmailAndDateRange(user.getUniEmail(), fiveMinutesAgo, now);
+
+        return recentFailedAttempts.size() >= 5;
+    }
+
+    private void lockAccountIfNeeded(User user) {
+        if (shouldLockAccount(user)) {
+            user.setAccountStatus(false);
+            userRepo.save();
         }
     }
 

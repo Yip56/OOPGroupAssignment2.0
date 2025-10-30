@@ -47,6 +47,23 @@ public class FailedLoginAttemptRepository implements IRepository<FailedLoginAtte
         return filtered;
     }
 
+    public List<FailedLoginAttempt> findByEmailAndDateRange(String email, LocalDateTime start, LocalDateTime end) {
+        List<FailedLoginAttempt> filtered = new ArrayList<>();
+
+        for (FailedLoginAttempt attempt : failedLoginAttempts) {
+            if (attempt.getUniEmail().equalsIgnoreCase(email)) {
+                LocalDateTime timestamp = attempt.getTimestamp();
+                // Include attempts that happened within the given range (inclusive)
+                if ((timestamp.isEqual(start) || timestamp.isAfter(start))
+                        && (timestamp.isEqual(end) || timestamp.isBefore(end))) {
+                    filtered.add(attempt);
+                }
+            }
+        }
+
+        return filtered;
+    }
+
     @Override
     public List<FailedLoginAttempt> findAll() {
         return new ArrayList<>(failedLoginAttempts);
